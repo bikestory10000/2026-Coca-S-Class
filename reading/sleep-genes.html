@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="BBC 기사 'The people who only need four hours' sleep' 구문분석·어휘·get 구동사·배경지식 — 압축보카 S 리딩">
+<meta name="color-scheme" content="light dark">
+<title>4시간만 자도 멀쩡한 사람들 | 압축보카 S 리딩</title>
+<script>try{var p=JSON.parse(localStorage.getItem('coca-reading:prefs')||'{}');if(p.theme)document.documentElement.dataset.theme=p.theme;if(p.text)document.documentElement.dataset.text=p.text;}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+/* 압축보카 S 클래스 디자인 — 시험지(흰 종이) + 빨간펜 + 형광펜 */
+:root{
+  --desk:#e9ece6;--paper:#fff;--paper-2:#f6f7f3;--ink:#1a2233;--ink-2:#3b4556;--pencil:#667080;
+  --rule:#d6dad1;--rule-2:#e7eae3;--pen:#cf2a1f;--pen-soft:#fbe9e6;--marker:#ffe56b;
+  --hold:#8a6d1c;--hold-soft:#f7f0da;--focus:#2957c4;
+  --r-s:#c4432b;--r-v:#127a8f;--r-o:#9a6b00;--r-c:#2f7d4a;--r-m:#6f7a8f;
+  --read:1;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --serif:"Literata",Georgia,"Times New Roman",serif;
+  --r-sm:4px;--r:8px;color-scheme:light;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --desk:#14171c;--paper:#1c2027;--paper-2:#22272f;--ink:#e8eaee;--ink-2:#c3c8d0;--pencil:#8f97a4;
+  --rule:#343b46;--rule-2:#2a3039;--pen:#ff7466;--pen-soft:#3a1f1d;--marker:rgba(255,214,70,.3);
+  --hold:#e2c46e;--hold-soft:#332c17;--focus:#8fb0ff;
+  --r-s:#ff8a70;--r-v:#5fc6d8;--r-o:#e6b84a;--r-c:#73c98f;--r-m:#9aa4b6;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --desk:#14171c;--paper:#1c2027;--paper-2:#22272f;--ink:#e8eaee;--ink-2:#c3c8d0;--pencil:#8f97a4;
+  --rule:#343b46;--rule-2:#2a3039;--pen:#ff7466;--pen-soft:#3a1f1d;--marker:rgba(255,214,70,.3);
+  --hold:#e2c46e;--hold-soft:#332c17;--focus:#8fb0ff;
+  --r-s:#ff8a70;--r-v:#5fc6d8;--r-o:#e6b84a;--r-c:#73c98f;--r-m:#9aa4b6;color-scheme:dark}
+:root[data-text="large"]{--read:1.12}
+:root[data-text="xlarge"]{--read:1.26}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:124px;scroll-behavior:smooth}
+body{margin:0;background:var(--desk);color:var(--ink);font:400 15px/1.6 var(--sans);letter-spacing:-.005em;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.muted{color:var(--pencil)}
+.serif{font-family:var(--serif)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule)}
+.header-inner{max-width:1080px;margin:0 auto;height:56px;padding:0 20px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.brand-name{font-weight:700;font-size:17px;letter-spacing:-.02em}
+.brand-name b{font-family:var(--serif);font-weight:600;color:var(--pen);margin:0 2px}
+.brand-by{font-size:12.5px;color:var(--pencil)}
+.tools{margin-left:auto;display:flex;gap:6px}
+.tool{height:34px;padding:0 11px;border:1px solid var(--rule);border-radius:var(--r-sm);background:transparent;font-size:13.5px;color:var(--ink-2)}
+.tool:hover{background:var(--paper-2)}
+.tabs{border-top:1px solid var(--rule-2);background:var(--paper)}
+.tabs-inner{max-width:1080px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tabs a{flex:none;padding:10px 12px 9px;font-size:14px;text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.tabs a .n{font-family:var(--serif);color:var(--pencil);margin-right:5px}
+.tabs a:hover{color:var(--ink)}
+.tabs a.on{color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--pen)}
+.tabs a.on .n{color:var(--pen)}
+
+main{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+
+/* hero */
+.hero{padding:38px 0 8px}
+.kicker{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.chip{display:inline-block;padding:2px 9px;border:1px solid var(--rule);border-radius:3px;font-size:12.5px;color:var(--ink-2);background:var(--paper)}
+.chip.red{border-color:var(--pen);color:var(--pen)}
+.hero h1{margin:0;font:600 clamp(28px,4.4vw,44px)/1.15 var(--serif);letter-spacing:-.02em}
+.hero .ko-title{margin:10px 0 0;font-size:clamp(17px,2.2vw,21px);font-weight:600;color:var(--ink-2)}
+.hero .lead{margin:16px 0 0;max-width:720px;color:var(--ink-2);font-size:15.5px}
+.route{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:26px 0 6px;padding:0;list-style:none}
+.route a{display:block;height:100%;padding:12px 12px 11px;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);text-decoration:none}
+.route a:hover{border-color:var(--ink-2)}
+.route a:hover b{color:var(--pen)}
+.route b{display:block;font:600 24px/1 var(--serif)}
+.route span{display:block;margin-top:7px;font-size:13.5px;font-weight:600}
+.route small{display:block;margin-top:2px;font-size:12px;color:var(--pencil)}
+
+/* section */
+.sec{padding-top:46px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.sec-head h2{margin:0;display:flex;align-items:baseline;gap:12px;font-size:22px;letter-spacing:-.03em}
+.sec-head h2 .num{font:600 32px/1 var(--serif);color:var(--pen)}
+.sec-head h2 small{font-size:13.5px;font-weight:400;color:var(--pencil);letter-spacing:0}
+.sec-tools{display:flex;gap:6px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 13px;border:1px solid var(--rule);border-radius:var(--r-sm);background:var(--paper);font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.btn:hover{border-color:var(--ink-2);color:var(--ink)}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.sheet{background:var(--paper);border:1px solid var(--rule);border-radius:var(--r)}
+.hint{margin:0 0 12px;font-size:13.5px;color:var(--pencil)}
+
+/* 1. reading */
+.story{padding:26px 30px 22px}
+.para{position:relative;padding:0 0 18px 34px;margin:0 0 18px;border-bottom:1px dashed var(--rule-2)}
+.para:last-child{border-bottom:0;margin-bottom:0;padding-bottom:4px}
+.para-no{position:absolute;left:0;top:3px;font:600 15px/1 var(--serif);color:var(--pencil)}
+.sent{display:inline;font:400 calc(18.5px*var(--read))/1.85 var(--serif);cursor:pointer;border-radius:2px}
+.sent:hover{background:var(--paper-2)}
+.sent.open{background:color-mix(in srgb,var(--focus) 8%,transparent)}
+.sent .sn{font:600 11px/1 var(--sans);color:var(--pen);vertical-align:super;margin-right:2px}
+.sent u,.stem u,.qstem u{text-decoration:none;font-weight:600;background:linear-gradient(transparent 58%,var(--marker) 58%,var(--marker) 92%,transparent 92%);padding:0 1px}
+.sent u.req,.stem u.req{box-shadow:inset 0 -1.5px 0 var(--pen)}
+.ko-line{display:none;margin:4px 0 8px;padding:8px 12px;border-left:3px solid var(--focus);background:var(--paper-2);font-size:calc(15px*var(--read));line-height:1.7;color:var(--ink-2)}
+.ko-line.show{display:block}
+.speak{display:inline-grid;place-items:center;width:30px;height:30px;margin-left:4px;border:1px solid var(--rule);border-radius:50%;background:var(--paper);font-size:13px;vertical-align:3px}
+.speak:hover{border-color:var(--ink-2)}
+.source{margin:14px 0 0;font-size:12.5px;color:var(--pencil)}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin:16px 0 0;padding:0;list-style:none;counter-reset:f}
+.flow li{position:relative;padding:12px 12px 12px;background:var(--paper);border:1px solid var(--rule);margin-left:-1px}
+.flow li:first-child{border-radius:var(--r) 0 0 var(--r);margin-left:0}
+.flow li:last-child{border-radius:0 var(--r) var(--r) 0}
+.flow li::before{counter-increment:f;content:counter(f);font:600 18px/1 var(--serif);color:var(--pen)}
+.flow b{display:block;margin-top:6px;font-size:13.5px}
+.flow span{display:block;margin-top:3px;font-size:12.5px;color:var(--pencil);line-height:1.5}
+.flow em{font-style:normal;font-family:var(--serif);color:var(--ink-2)}
+
+/* 2. syntax */
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 14px;padding:12px 16px;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px}
+.legend .bk{font:600 14px var(--serif)}
+.scard{margin:0 0 14px;scroll-margin-top:124px}
+.scard-head{display:flex;align-items:center;gap:12px;padding:16px 22px 0;flex-wrap:wrap}
+.scard-no{font:600 22px/1 var(--serif);min-width:1.6em}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{padding:1px 8px;border:1px solid var(--rule);border-radius:3px;font-size:12.5px;color:var(--pencil)}
+.tag.key{border-color:var(--pen);color:var(--pen)}
+.scard-body{padding:10px 22px 18px}
+.stem{margin:0;font:400 calc(19px*var(--read))/1.75 var(--serif)}
+.bk-n,.bk-a,.bk-d{font-weight:600;font-family:var(--serif)}
+.bk-n{color:var(--r-s)}.bk-a{color:var(--r-c)}.bk-d{color:var(--r-v)}
+.par{font:700 .72em/1 var(--sans);color:var(--pen);vertical-align:.35em;margin-right:1px}
+.omit{color:var(--pencil);font-style:italic;font-size:.88em;border-bottom:1px dotted var(--pencil)}
+.omit::before{content:"("}.omit::after{content:")"}
+.ko-sum{margin:6px 0 0;font-size:calc(14.5px*var(--read));color:var(--ink-2)}
+.units{display:flex;flex-wrap:wrap;gap:8px 6px;margin:16px 0 0}
+.unit{display:flex;flex-direction:column;gap:2px;min-width:0;max-width:100%;padding:8px 10px 7px;border:1px solid var(--rule-2);border-top:3px solid var(--r-m);border-radius:var(--r-sm);background:var(--paper-2)}
+.unit .en{font:400 calc(15.5px*var(--read))/1.4 var(--serif)}
+.unit .ko{font-size:calc(12.5px*var(--read));color:var(--ink-2);line-height:1.45}
+.unit .role{font-size:11.5px;font-weight:700;white-space:nowrap;color:var(--r-m)}
+.unit .pos{font-size:11px;color:var(--pencil);white-space:nowrap}
+.unit.s{border-top-color:var(--r-s)}.unit.s .role{color:var(--r-s)}
+.unit.v{border-top-color:var(--r-v)}.unit.v .role{color:var(--r-v)}
+.unit.o{border-top-color:var(--r-o)}.unit.o .role{color:var(--r-o)}
+.unit.c{border-top-color:var(--r-c)}.unit.c .role{color:var(--r-c)}
+body.hide-ko .unit .ko,body.hide-ko .ko-sum{color:transparent;background:var(--rule-2);border-radius:2px;user-select:none}
+body.hide-ko .unit:hover .ko,body.hide-ko .scard:hover .ko-sum{color:var(--ink-2);background:none}
+.note{margin:16px 0 0;padding:12px 16px 12px;border-left:3px solid var(--pen);background:var(--pen-soft);font-size:calc(14.5px*var(--read));line-height:1.75}
+.note-t{display:block;margin-bottom:4px;font-size:12.5px;font-weight:700;color:var(--pen)}
+.note ul{margin:4px 0 0;padding-left:18px}
+.note li+li{margin-top:3px}
+.note .en{font-family:var(--serif)}
+.note .x{color:var(--pen);text-decoration:line-through;text-decoration-thickness:1px}
+
+/* 3. vocab */
+.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.vcard{padding:18px 20px 16px;scroll-margin-top:124px}
+.vcard.req{border-color:color-mix(in srgb,var(--pen) 45%,var(--rule))}
+.vtop{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vno{font:600 13px var(--serif);color:var(--pencil)}
+.vword{margin:0;font:600 calc(24px*var(--read))/1.2 var(--serif)}
+.vpr{font-size:13px;color:var(--pencil)}
+.vtop .speak{margin-left:auto}
+.req-tag{padding:0 6px;font:600 11.5px/1.7 var(--sans);color:var(--pen);border:1px solid currentColor;border-radius:3px}
+.senses{margin:10px 0 0;padding:0;list-style:none}
+.senses li{display:flex;gap:8px;font-size:calc(14.5px*var(--read));line-height:1.6}
+.senses li+li{margin-top:2px}
+.pos-chip{flex:none;min-width:30px;font:600 12.5px/1.75 var(--serif);color:var(--ink-2)}
+.vex{margin:12px 0 0;padding:10px 12px;background:var(--paper-2);border-radius:var(--r-sm)}
+.vex p{margin:0}
+.vex .e{font:400 calc(15px*var(--read))/1.55 var(--serif)}
+.vex .e b{font-weight:600;background:linear-gradient(transparent 60%,var(--marker) 60%)}
+.vex .k{font-size:calc(13px*var(--read));color:var(--pencil);margin-top:1px}
+.vex p+p.e{margin-top:8px}
+.vex .src{font:600 10.5px var(--sans);color:var(--pen);margin-right:6px;vertical-align:1px}
+.ext{margin:10px 0 0;padding:0;list-style:none;font-size:calc(13.5px*var(--read));line-height:1.65;color:var(--ink-2)}
+.ext li::before{content:"▸ ";color:var(--r-o)}
+.ext b,.cmp b{font-family:var(--serif);color:var(--ink)}
+.cmp{margin:8px 0 0;padding:8px 12px;border-left:2px solid var(--pen);font-size:calc(13.5px*var(--read));line-height:1.65;color:var(--ink-2);background:color-mix(in srgb,var(--pen-soft) 55%,transparent)}
+.cmp p{margin:0}.cmp p+p{margin-top:4px}
+.cmp p::before{content:"※ ";color:var(--pen);font-weight:700}
+.syn{margin:8px 0 0;font-size:13px;color:var(--pencil)}
+.syn b{color:var(--ink-2);font-weight:600}
+
+/* 4. get */
+.core{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;padding:20px 22px;margin:0 0 14px}
+.core h3{margin:0 0 8px;font-size:16px}
+.core p{margin:0 0 8px;font-size:14.5px;color:var(--ink-2)}
+.core .big{font:600 22px/1.3 var(--serif);color:var(--ink)}
+.core .big em{font-style:normal;color:var(--pen)}
+.ggroup{margin:0 0 12px;overflow:hidden}
+.ghead{display:flex;align-items:baseline;gap:12px;padding:12px 18px;background:var(--paper-2);border-bottom:1px solid var(--rule-2)}
+.ghead b{font:600 20px/1 var(--serif)}
+.ghead span{font-size:13.5px;color:var(--ink-2)}
+.gitem{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:4px 18px;padding:12px 18px;border-top:1px solid var(--rule-2)}
+.gitem:first-of-type{border-top:0}
+.gitem.star{background:color-mix(in srgb,var(--marker) 16%,transparent)}
+.gv{font:600 calc(17px*var(--read))/1.35 var(--serif)}
+.gv small{display:block;margin-top:3px;font:500 12px var(--sans);color:var(--pen)}
+.gm{margin:0;font-weight:600;font-size:calc(14.5px*var(--read))}
+.ge{margin:3px 0 0;font:400 calc(15px*var(--read))/1.55 var(--serif)}
+.ge b{font-weight:600}
+.gk{margin:1px 0 0;font-size:calc(13px*var(--read));color:var(--pencil)}
+.gs{margin:4px 0 0;font-size:12.5px;color:var(--ink-2)}
+.gs b{font-weight:600;color:var(--pencil);margin-right:4px}
+
+/* 5. background */
+.bgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.bcard{padding:18px 20px}
+.bcard.wide{grid-column:1/-1}
+.bcard h3{margin:0 0 10px;display:flex;align-items:baseline;gap:10px;font-size:17px;letter-spacing:-.02em}
+.bcard h3 .bn{font:600 20px/1 var(--serif);color:var(--pen)}
+.bcard p{margin:0 0 9px;font-size:calc(14.5px*var(--read));line-height:1.75;color:var(--ink-2)}
+.bcard p:last-child{margin-bottom:0}
+.bcard .en{font-family:var(--serif);color:var(--ink)}
+.bcard ul{margin:0 0 8px;padding-left:18px;font-size:calc(14.5px*var(--read));line-height:1.7;color:var(--ink-2)}
+.fact{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.fact div{padding:10px 12px;border:1px solid var(--rule-2);border-radius:var(--r-sm);background:var(--paper-2)}
+.fact b{display:block;font:600 24px/1.1 var(--serif)}
+.fact span{display:block;margin-top:4px;font-size:12.5px;color:var(--pencil);line-height:1.45}
+.tl{margin:6px 0 0;padding:0;list-style:none;border-left:2px solid var(--rule);}
+.tl li{position:relative;padding:0 0 12px 18px}
+.tl li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--pen)}
+.tl .yr{font:600 15px var(--serif);color:var(--pen);margin-right:8px}
+.tl .gn{font:600 16px var(--serif)}
+.tl p{margin:2px 0 0;font-size:13.5px;line-height:1.6}
+svg.fig{display:block;width:100%;height:auto;margin:6px 0 10px}
+.fig text{font-family:var(--sans)}
+.kw{width:100%;border-collapse:collapse;font-size:calc(14px*var(--read))}
+.kw th{text-align:left;font-size:12.5px;color:var(--pencil);font-weight:600;padding:6px 8px;border-bottom:1.5px solid var(--ink)}
+.kw td{padding:7px 8px;border-bottom:1px solid var(--rule-2);vertical-align:top}
+.kw td:first-child{font:600 15px var(--serif);white-space:nowrap}
+.kw td:last-child{color:var(--pencil);font-size:13px}
+.tip{margin:10px 0 0;padding:10px 14px;background:var(--hold-soft);border-left:3px solid var(--hold);font-size:calc(14px*var(--read));line-height:1.7}
+.tip b{color:var(--hold)}
+.refs{margin:14px 0 0;padding:14px 18px;font-size:13px;color:var(--pencil)}
+.refs h3{margin:0 0 6px;font-size:13.5px;color:var(--ink-2)}
+.refs ol{margin:0;padding-left:18px;line-height:1.75}
+.refs a{color:var(--ink-2)}
+
+/* 6. test */
+.score-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 12px;padding:12px 16px}
+.score-bar b{font:600 26px/1 var(--serif)}
+.score-bar b.got{color:var(--pen)}
+.qcard{margin:0 0 12px;padding:16px 22px 14px}
+.qhead{display:flex;gap:10px;align-items:baseline}
+.qno{position:relative;font:600 20px/1 var(--serif);min-width:1.8em}
+.qtype{font-size:12.5px;color:var(--pencil)}
+.qstem{margin:8px 0 0;font:400 calc(17.5px*var(--read))/1.65 var(--serif)}
+.qstem .ko{font-family:var(--sans);font-size:calc(14.5px*var(--read));color:var(--ink-2)}
+.opts{margin:10px 0 0;display:grid;gap:2px}
+.opt{position:relative;display:flex;gap:12px;align-items:flex-start;width:100%;padding:8px 10px;border:1px solid transparent;border-radius:var(--r-sm);background:transparent;text-align:left}
+.opt:not(:disabled):hover{background:var(--paper-2);border-color:var(--rule)}
+.opt:disabled{cursor:default;color:var(--ink)}
+.om{position:relative;flex:none;width:26px;text-align:center;font:400 calc(17px*var(--read))/1.5 var(--serif);color:var(--ink-2)}
+.ot{font:400 calc(16.5px*var(--read))/1.5 var(--serif)}
+.opt.ans .ot{font-weight:600}
+.opt.bad .ot{color:var(--pen);text-decoration:line-through;text-decoration-thickness:1px}
+.pen{position:absolute;pointer-events:none;overflow:visible;fill:none;stroke:var(--pen);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;left:-6px;top:-4px;width:38px;height:36px}
+.qno .pen{left:-10px;top:-11px;width:50px;height:42px}
+.pen path{stroke-dasharray:140;animation:pen .38s ease-out both}
+@keyframes pen{from{stroke-dashoffset:140}to{stroke-dashoffset:0}}
+.expl{display:none;margin:10px 0 0;padding:10px 14px;border-radius:var(--r-sm);background:var(--paper-2);font-size:calc(14px*var(--read));line-height:1.7;color:var(--ink-2)}
+.expl.show{display:block}
+.expl strong{color:var(--ink)}
+.expl.bad strong{color:var(--pen)}
+
+.site-footer{max-width:1080px;margin:0 auto;padding:24px 20px 40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--pencil);border-top:1px solid var(--rule)}
+.site-footer a{color:var(--ink-2)}
+
+@media(max-width:860px){
+  .route{grid-template-columns:repeat(3,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr);gap:6px}
+  .flow li,.flow li:first-child,.flow li:last-child{border-radius:var(--r);margin:0}
+  .vgrid,.bgrid,.core{grid-template-columns:1fr}
+  .fact{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:560px){
+  body{font-size:14.5px}
+  .header-inner{padding:0 14px;gap:10px}
+  .brand-by{display:none}
+  main{padding:0 12px 60px}
+  .story{padding:18px 16px}
+  .para{padding-left:24px}
+  .scard-head,.scard-body{padding-left:16px;padding-right:16px}
+  .qcard,.vcard,.bcard{padding:14px 16px}
+  .gitem{grid-template-columns:1fr;padding:12px 14px}
+  .route{grid-template-columns:repeat(2,1fr)}
+  .fact{grid-template-columns:1fr}
+}
+@media print{
+  .site-header,.sec-tools,.speak,.tools,.route,.score-bar{display:none!important}
+  body{background:#fff}
+  .sheet{border-color:#bbb;break-inside:avoid-page}
+  .ko-line{display:block!important}
+  .expl{display:block!important}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./"><span class="brand-name">압축보카<b>S</b>리딩</span><span class="brand-by">English Lab 민쌤영어 · Stairs to 100</span></a>
+    <div class="tools">
+      <button class="tool" id="textBtn" type="button" title="글자 크기">가 크기</button>
+      <button class="tool" id="themeBtn" type="button" title="밝게/어둡게">화면</button>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="학습 단계">
+    <div class="tabs-inner">
+      <a href="#read"><span class="n">1</span>원문</a>
+      <a href="#syntax"><span class="n">2</span>구문분석</a>
+      <a href="#vocab"><span class="n">3</span>어휘</a>
+      <a href="#get"><span class="n">4</span>get 구동사</a>
+      <a href="#bg"><span class="n">5</span>배경지식</a>
+      <a href="#test"><span class="n">6</span>확인 테스트</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="kicker"><span class="chip red">BBC · 과학</span><span class="chip">수면 · 유전학</span><span class="chip">15문장</span><span class="chip">어휘 16 · 구동사 28</span></div>
+    <h1>The people who only need four hours' sleep</h1>
+    <p class="ko-title">4시간만 자도 멀쩡한 사람들 — 잠의 양은 유전자가 정한다?</p>
+    <p class="lead">새벽 4시 반이면 눈이 번쩍 떠지는 면역학 교수 이야기로 시작하는 BBC 기사입니다. 원문을 먼저 읽고, 구문분석 → 어휘 → get 구동사 → 배경지식 순서로 공부한 뒤 마지막 테스트로 확인하세요.</p>
+    <ol class="route">
+      <li><a href="#read"><b>1</b><span>원문 읽기</span><small>문장 누르면 해석</small></a></li>
+      <li><a href="#syntax"><b>2</b><span>구문분석</span><small>15문장 성분 해부</small></a></li>
+      <li><a href="#vocab"><b>3</b><span>어휘</span><small>요청 표현 7 + 9</small></a></li>
+      <li><a href="#get"><b>4</b><span>get 구동사</span><small>전치사 감각 28개</small></a></li>
+      <li><a href="#bg"><b>5</b><span>배경지식</span><small>수면 유전학</small></a></li>
+      <li><a href="#test"><b>6</b><span>확인 테스트</span><small>12문항 채점</small></a></li>
+    </ol>
+  </section>
+
+  <!-- 1 -->
+  <section class="sec" id="read">
+    <div class="sec-head">
+      <h2><span class="num">1</span>원문 읽기<small>문장을 누르면 해석이 열려요</small></h2>
+      <div class="sec-tools">
+        <button class="btn" id="allKo" type="button" aria-pressed="false">해석 모두 보기</button>
+        <button class="btn" id="readAll" type="button">🔊 전체 듣기</button>
+      </div>
+    </div>
+    <p class="hint">노란 형광펜 = 어휘 카드에 있는 단어 · <span style="box-shadow:inset 0 -1.5px 0 var(--pen)">빨간 밑줄</span> = 수업에서 따로 정리 요청한 표현 (단어를 누르면 카드로 이동)</p>
+    <div class="sheet story" id="story"></div>
+    <p class="source">출처: BBC Future, "The people who only need four hours' sleep" 도입부 · 학습용 발췌</p>
+
+    <h3 style="margin:26px 0 0;font-size:16px">글의 흐름 — 편입 독해 도입부의 전형</h3>
+    <ol class="flow">
+      <li><b>일화로 훅</b><span>버나드: 밤 10시 취침, 새벽 4시 반 기상 <em>¶1–3</em></span></li>
+      <li><b>반전 포인트</b><span>가족 모두 똑같다 → 유전 암시 <em>¶3</em></span></li>
+      <li><b>일반 기준</b><span>보통 성인은 7–9시간 <em>¶4</em></span></li>
+      <li><b>문제 제기</b><span>왜 사람마다 이렇게 다를까? <em>¶5</em></span></li>
+      <li><b>답 예고</b><span>희귀 돌연변이부터 흔한 변이까지 <em>from A to B</em></span></li>
+      <li><b>의의</b><span>잠 부족한 사람을 보호하는 데 활용 <em>could</em></span></li>
+    </ol>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec" id="syntax">
+    <div class="sec-head">
+      <h2><span class="num">2</span>구문분석<small>15문장 · 4줄 유닛</small></h2>
+      <div class="sec-tools"><button class="btn" id="hideKo" type="button" aria-pressed="false">한글 줄 가리기</button></div>
+    </div>
+    <div class="legend">
+      <span><span class="bk bk-n">[ ]</span> 명사 역할 (명사절)</span>
+      <span><span class="bk bk-a">( )</span> 형용사 역할 (명사 수식·동격)</span>
+      <span><span class="bk bk-d">〈 〉</span> 부사 역할</span>
+      <span><span class="par">①②</span> 병렬</span>
+      <span><span class="omit">sleep</span> 생략된 말</span>
+      <span>|</span>
+      <span><i style="background:var(--r-s)"></i>주어</span><span><i style="background:var(--r-v)"></i>동사</span><span><i style="background:var(--r-o)"></i>목적어</span><span><i style="background:var(--r-c)"></i>보어</span><span><i style="background:var(--r-m)"></i>수식·접속</span>
+    </div>
+    <p class="hint">유닛 4줄 = ① 영어 ② 한글 ③ 문장성분 + 동사의 문형 ④ 품사·형태 · 준동사 안의 동사는 V′로 표시</p>
+    <div id="syntaxList"></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec" id="vocab">
+    <div class="sec-head">
+      <h2><span class="num">3</span>어휘<small>품사별 ①② 의미 · ▸ 표현 · ※ 비교</small></h2>
+    </div>
+    <p class="hint"><span class="req-tag">요청</span> 표시는 수업에서 정리 요청한 표현입니다. 🔊 누르면 발음을 들을 수 있어요.</p>
+    <div class="vgrid" id="vocabList"></div>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec" id="get">
+    <div class="sec-head">
+      <h2><span class="num">4</span>get 구동사<small>get away with에서 출발</small></h2>
+    </div>
+    <div class="sheet core">
+      <div>
+        <h3>get 구동사는 외우지 말고 '그림'으로</h3>
+        <p class="big">get = <em>어떤 상태·위치로 이동하다</em><br>+ 전치사/부사 = <em>어디로</em> 움직이는가</p>
+        <p>get away는 '멀리 이동' → 벌이나 대가로부터 <b>벗어남</b>. 그래서 get away with는 "~을 가지고도(with) 빠져나가다" = 나쁜 짓을 하고도 무사하다. 기사에서는 "아주 적은 잠을 가지고도 대가(피로·건강 문제) 없이 빠져나간다"는 뜻으로 쓰였습니다.</p>
+      </div>
+      <div>
+        <div class="vex" style="margin:0">
+          <p class="e"><span class="src">BBC</span>Here's why some people <b>get away with</b> very little sleep.</p>
+          <p class="k">아주 적게 자고도 별 탈 없이 지내는 사람이 있는 이유는 이렇다.</p>
+          <p class="e">He cheated on the test and <b>got away with</b> it.</p>
+          <p class="k">그는 시험에서 부정행위를 하고도 들키지 않았다.</p>
+          <p class="e">Few people can <b>get by on</b> four hours' sleep.</p>
+          <p class="k">4시간 수면으로 버틸 수 있는 사람은 거의 없다.</p>
+        </div>
+        <p class="hint" style="margin:10px 0 0">★ 표시 = 기사·시험 직결. 아래 동의어는 편입 어휘 문제 보기로 자주 나오는 단어입니다.</p>
+      </div>
+    </div>
+    <div id="getList"></div>
+  </section>
+
+  <!-- 5 -->
+  <section class="sec" id="bg">
+    <div class="sec-head">
+      <h2><span class="num">5</span>배경지식<small>수면 유전학 한눈에</small></h2>
+    </div>
+    <div class="bgrid">
+      <article class="sheet bcard">
+        <h3><span class="bn">01</span>몇 시간 자야 할까?</h3>
+        <p>기사의 "<span class="en">latest review of the evidence</span>"는 미국 국립수면재단(NSF)이 2026년 6월 발표한 재검토입니다. 2015년에 낸 연령별 수면 권고를 10년 만에 다시 따져 본 것으로, 메타분석 133건(개별 연구 최대 3,222건)을 검토한 뒤 기존 권고가 여전히 맞다고 결론 내렸습니다.</p>
+        <div class="fact">
+          <div><b>7–9h</b><span>성인 26–64세 권장</span></div>
+          <div><b>7–8h</b><span>65세 이상 권장</span></div>
+          <div><b>133</b><span>검토한 메타분석 수</span></div>
+        </div>
+        <p>NSF는 권고를 '범위'로 제시해 <span class="en">sleep needs vary across individuals</span>(개인차)를 인정하고, 수면 건강은 시간만이 아니라 질·규칙성·만족도·낮 동안의 컨디션까지 포함한다고 강조합니다.</p>
+      </article>
+
+      <article class="sheet bcard">
+        <h3><span class="bn">02</span>자연적 단시간 수면자 (FNSS)</h3>
+        <p><span class="en">Familial Natural Short Sleep</span>: 하루 4–6시간만 자도 낮에 졸리지 않고 수면 부족의 부작용도 없는 유전 형질입니다. 버나드처럼 <b>아버지·형제도 같은 이유</b>가 여기 있습니다.</p>
+        <ul>
+          <li><b>상염색체 우성 유전</b> — 부모 중 한 명만 가져도 자녀에게 전해질 수 있음</li>
+          <li>주말에 몰아 자지 않음 (그냥 잠이 부족한 사람과의 차이)</li>
+          <li>활동적·낙관적이라는 관찰 보고가 많음</li>
+        </ul>
+        <p>연구는 UCSF 신경과 교수 <span class="en">Ying-Hui Fu</span>(푸잉후이) 팀이 이끌어 왔습니다. 주의할 점: "나는 4시간만 자도 돼"라는 사람 대부분은 FNSS가 아니라 그냥 <b>수면 부족</b>입니다.</p>
+      </article>
+
+      <article class="sheet bcard">
+        <h3><span class="bn">03</span>'희귀 돌연변이' 다섯 개 연대표</h3>
+        <ol class="tl">
+          <li><span class="yr">2009</span><span class="gn">DEC2</span> <span class="muted">(BHLHE41)</span><p>첫 발견. 생체시계 관련 유전자로, 변이가 생기면 각성 물질 <span class="en">orexin</span>(오렉신)이 덜 억제돼 깨어 있는 힘이 커짐</p></li>
+          <li><span class="yr">2019</span><span class="gn">ADRB1</span><p>베타1 아드레날린 수용체. 이 변이를 넣은 쥐는 하루 평균 55분 덜 잠</p></li>
+          <li><span class="yr">2019</span><span class="gn">NPSR1</span><p>신경펩타이드 S 수용체. 쥐가 적게 자고도 기억력 테스트를 똑같이 잘 해냄</p></li>
+          <li><span class="yr">2021</span><span class="gn">GRM1</span><p>대사성 글루탐산 수용체. 단시간 수면 가족에서 발견</p></li>
+          <li><span class="yr">2025</span><span class="gn">SIK3</span><p>대사·일주기 리듬에 관여하는 효소. 시냅스에서 특히 활발 (PNAS)</p></li>
+        </ol>
+        <p>기사의 "<span class="en">the rare mutations carried by people like Bernard</span>"가 바로 이 계열입니다.</p>
+      </article>
+
+      <article class="sheet bcard">
+        <h3><span class="bn">04</span>희귀 돌연변이 vs 흔한 변이</h3>
+        <svg class="fig" viewBox="0 0 460 190" role="img" aria-label="희귀 돌연변이는 소수에게 큰 효과, 흔한 변이는 다수에게 작은 효과">
+          <rect x="6" y="8" width="214" height="174" rx="8" fill="none" stroke="var(--rule)"/>
+          <rect x="240" y="8" width="214" height="174" rx="8" fill="none" stroke="var(--rule)"/>
+          <text x="113" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">rare mutation</text>
+          <text x="113" y="50" text-anchor="middle" font-size="11.5" fill="var(--pencil)">한 개 · 효과 큼 · 소수 가족</text>
+          <rect x="98" y="66" width="30" height="96" rx="3" fill="var(--pen)"/>
+          <text x="113" y="176" text-anchor="middle" font-size="11" fill="var(--pencil)">수면 −2시간 수준</text>
+          <text x="347" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">common variants</text>
+          <text x="347" y="50" text-anchor="middle" font-size="11.5" fill="var(--pencil)">수백 개 · 하나하나 효과 작음</text>
+          <g fill="var(--r-v)">
+            <rect x="262" y="150" width="9" height="12"/><rect x="275" y="146" width="9" height="16"/><rect x="288" y="152" width="9" height="10"/><rect x="301" y="144" width="9" height="18"/><rect x="314" y="150" width="9" height="12"/><rect x="327" y="148" width="9" height="14"/><rect x="340" y="153" width="9" height="9"/><rect x="353" y="145" width="9" height="17"/><rect x="366" y="151" width="9" height="11"/><rect x="379" y="147" width="9" height="15"/><rect x="392" y="152" width="9" height="10"/><rect x="405" y="149" width="9" height="13"/><rect x="418" y="146" width="9" height="16"/>
+          </g>
+          <text x="347" y="176" text-anchor="middle" font-size="11" fill="var(--pencil)">합쳐서 개인차를 만든다</text>
+        </svg>
+        <p>2019년 UK 바이오뱅크 성인 44만 6천여 명을 분석한 전장 유전체 연관 분석(<span class="en">GWAS</span>)은 수면 시간과 관련된 유전자 자리 78곳을 찾았습니다. 그런데 78곳을 다 합쳐도 수면 시간 개인차의 0.69%밖에 설명하지 못했습니다. 2023년에는 영국·미국 바이오뱅크 자료로 '짧은 수면'과 관련된 자리 84곳이 보고됐습니다.</p>
+        <p>→ 수면량은 키처럼 수많은 유전자가 조금씩 기여하는 <b>다유전자 형질</b>(<span class="en">polygenic trait</span>)입니다.</p>
+      </article>
+
+      <article class="sheet bcard">
+        <h3><span class="bn">05</span>잠은 두 개의 시계가 정한다</h3>
+        <svg class="fig" viewBox="0 0 460 170" role="img" aria-label="수면 압력 S는 깨어 있는 동안 쌓이고, 일주기 리듬 C는 하루 주기로 오르내린다">
+          <line x1="30" y1="140" x2="450" y2="140" stroke="var(--rule)"/>
+          <line x1="30" y1="20" x2="30" y2="140" stroke="var(--rule)"/>
+          <path d="M30 128 C120 100 190 62 300 40 L300 40 C330 70 360 110 400 126 L450 120" fill="none" stroke="var(--pen)" stroke-width="2.4"/>
+          <path d="M30 96 C90 64 150 44 220 58 C290 72 330 118 400 120 C430 121 445 110 450 104" fill="none" stroke="var(--r-v)" stroke-width="2.4" stroke-dasharray="6 4"/>
+          <rect x="300" y="22" width="100" height="118" fill="var(--ink)" opacity=".06"/>
+          <text x="350" y="155" text-anchor="middle" font-size="11" fill="var(--pencil)">수면</text>
+          <text x="160" y="155" text-anchor="middle" font-size="11" fill="var(--pencil)">깨어 있는 시간</text>
+          <text x="210" y="38" font-size="12" font-weight="700" fill="var(--pen)">S 수면 압력</text>
+          <text x="96" y="52" font-size="12" font-weight="700" fill="var(--r-v)">C 일주기 리듬</text>
+        </svg>
+        <p><b>Process S</b>(수면 항상성, <span class="en">homeostasis</span>): 깨어 있는 동안 수면 압력이 쌓이고 자면서 풀립니다. <b>Process C</b>(<span class="en">circadian rhythm</span>): 뇌 속 생체시계가 약 24시간 주기로 졸림과 각성을 조절합니다.</p>
+        <p>단시간 수면자는 <b>잠의 '효율'</b>이 높아, 보통 사람이 8시간 걸려 하는 회복을 4–6시간에 끝내는 것으로 추정됩니다(Fu 교수의 설명).</p>
+      </article>
+
+      <article class="sheet bcard">
+        <h3><span class="bn">06</span>잠이 부족하면 생기는 일 &amp; 반론</h3>
+        <p>기사 마지막 문장의 "<span class="en">the usual consequences</span>"는 수면 부족의 대가입니다. 대규모 유전 연구들은 수면 시간이 비만·심혈관 질환·사망률 같은 건강 결과와 연결된다고 보고했고, 짧은 수면이 우울증 위험을 높이는 방향의 인과 관계를 시사한 연구도 있습니다.</p>
+        <p>Fu 팀은 알츠하이머 모델 쥐에 DEC2·NPSR1 단시간 수면 변이를 넣었더니 뇌의 병리 변화가 줄었다고 보고했습니다 → 잠을 적게 자도 몸을 지키는 약을 개발하는 단서가 될 수 있습니다.</p>
+        <p class="tip"><b>반론도 알아 두기</b> · 대규모 바이오뱅크 분석에서는 같은 유전자에 변이를 가진 사람이 반드시 짧게 자는 건 아니라는 결과도 나왔습니다. 가족 연구에서 찾은 효과가 일반 인구에도 그대로 나타나는지는 아직 논쟁 중입니다 (편입 독해의 '연구의 한계' 문단 단골).</p>
+      </article>
+
+      <article class="sheet bcard wide">
+        <h3><span class="bn">07</span>이 주제로 편입 독해가 나오면 — 키워드</h3>
+        <table class="kw">
+          <thead><tr><th>영어</th><th>뜻</th><th>같이 나오는 말</th></tr></thead>
+          <tbody>
+            <tr><td>circadian rhythm</td><td>일주기 리듬, 생체 리듬</td><td>body clock, jet lag, shift work</td></tr>
+            <tr><td>homeostasis</td><td>항상성 (몸이 균형을 유지하려는 성질)</td><td>sleep pressure, adenosine</td></tr>
+            <tr><td>sleep deprivation</td><td>수면 박탈, 수면 부족</td><td>sleep debt(수면 빚), cognitive impairment</td></tr>
+            <tr><td>hereditary / heritable</td><td>유전되는 / 유전 가능한</td><td>inherited, run in the family(집안 내력이다)</td></tr>
+            <tr><td>dominant ↔ recessive</td><td>우성 ↔ 열성</td><td>autosomal(상염색체의), carrier(보인자)</td></tr>
+            <tr><td>genotype ↔ phenotype</td><td>유전자형 ↔ 표현형</td><td>trait(형질), penetrance(침투도)</td></tr>
+            <tr><td>polygenic</td><td>다유전자의</td><td>GWAS, locus(복수 loci 유전자 자리)</td></tr>
+            <tr><td>chronotype</td><td>일주기 유형 (아침형·저녁형)</td><td>lark(아침형) ↔ night owl(저녁형)</td></tr>
+            <tr><td>insomnia / narcolepsy</td><td>불면증 / 기면증</td><td>orexin(=hypocretin) 결핍 → 기면증</td></tr>
+            <tr><td>nature vs nurture</td><td>본성(유전) 대 양육(환경)</td><td>genetic determinism(유전자 결정론)</td></tr>
+          </tbody>
+        </table>
+        <p class="tip"><b>빈칸 단서 팁</b> · 이런 글은 '평균(average 7–9시간)'과 '개인차(wide variation)'를 대비시킵니다. 빈칸 앞뒤에 <span class="en">average, most of us</span>가 보이면 정답은 반대쪽 <span class="en">individual, idiosyncratic, heterogeneous, vary</span> 계열일 가능성이 큽니다.</p>
+      </article>
+    </div>
+    <div class="sheet refs">
+      <h3>배경지식 출처</h3>
+      <ol>
+        <li><a href="https://www.thensf.org/sleep-duration" target="_blank" rel="noopener">National Sleep Foundation — 수면 시간 권고 10년 재검토 (2026.6)</a></li>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6405943/" target="_blank" rel="noopener">Dashti et al., Nature Communications (2019) — 수면 시간 GWAS 78개 유전자 자리</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/37770476/" target="_blank" rel="noopener">Austin-Zimmerman et al., Nature Communications (2023) — 짧은 수면 84개 자리</a></li>
+        <li><a href="https://www.pnas.org/doi/10.1073/pnas.2500356122" target="_blank" rel="noopener">SIK3-N783Y 변이와 단시간 수면, PNAS (2025)</a></li>
+        <li><a href="https://www.inverse.com/article/60137-natural-short-sleepers-genetic-mutations" target="_blank" rel="noopener">Inverse — NPSR1 변이 발견 (2019)</a></li>
+        <li><a href="https://www.genengnews.com/?p=126080" target="_blank" rel="noopener">GEN — ADRB1 변이와 쥐 수면 55분 감소 (2019)</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="sec" id="test">
+    <div class="sec-head">
+      <h2><span class="num">6</span>확인 테스트<small>어휘 · 구문 · 구동사 · 배경</small></h2>
+      <div class="sec-tools"><button class="btn" id="resetTest" type="button">다시 풀기</button></div>
+    </div>
+    <div class="sheet score-bar"><span>맞힌 문항</span><b class="got" id="got">0</b><span class="muted">/ <span id="tot">12</span> · 푼 문항 <span id="done">0</span></span></div>
+    <div id="testList"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>압축보카 S 리딩 · English Lab 민쌤영어 · Stairs to 100</span>
+  <span>기사 원문 저작권은 BBC에 있습니다 · 수업 학습용</span>
+</footer>
+
+<script>
+/* ---------- 데이터 ---------- */
+const STORY=[
+ [1,"<u class=\"req\" data-v=\"forlong\">For as long as</u> she can remember, Aimee Pugh Bernard hasn't needed much sleep.","기억할 수 있는 아주 오래전부터 에이미 퓨 버나드는 잠이 많이 필요하지 않았다."],
+ [1,"Today she tends to go to bed around 22:00 and wake up around 04:30.","요즘 그녀는 보통 밤 10시쯤 잠자리에 들어 새벽 4시 30분쯤 일어난다."],
+ [1,"\"I'm <u class=\"req\" data-v=\"wide\">wide</u> awake. I cannot stay in bed,\" she says.","\"정신이 완전히 말똥말똥해요. 침대에 그대로 누워 있을 수가 없어요.\" 그녀는 말한다."],
+ [2,"Sometimes Bernard, an <u data-v=\"immunology\">immunology</u> professor at the University of Colorado, can't fall asleep right away.","콜로라도 대학교의 면역학 교수인 버나드도 가끔은 곧바로 잠들지 못할 때가 있다."],
+ [2,"Then she'll <u class=\"req\" data-v=\"log\">log</u> only five hours' <u class=\"req\" data-v=\"slumber\">slumber</u>.","그런 날이면 그녀의 수면 기록은 고작 5시간에 그친다."],
+ [3,"Perhaps most surprisingly, Bernard usually still feels <u data-v=\"energise\">energised</u> the next day.","아마 가장 놀라운 점은, 그래도 버나드가 다음 날 대개 여전히 활력이 넘친다는 것이다."],
+ [3,"She'll walk her dog, sweat through an hour-long gym session, and <u data-v=\"clock\">clock</u> 1.5 hours of work before 08:00.","그녀는 개를 산책시키고, 1시간짜리 헬스 운동으로 땀을 쏙 빼고, 오전 8시 전에 1시간 반 동안 일을 해치운다."],
+ [3,"Friends <u class=\"req\" data-v=\"gawk\">gawk</u> at Bernard's ability to do so much on so little sleep.","친구들은 그렇게 적게 자고도 그렇게 많은 일을 해내는 버나드의 능력에 입을 떡 벌린다."],
+ [3,"But in her family, it's normal – her father and brother are the same.","하지만 그녀의 집안에서는 이게 정상이다. 아버지와 형제도 똑같기 때문이다."],
+ [4,"Most of us, of course, <u data-v=\"require\">require</u> more.","물론 우리 대부분은 그보다 더 많은 잠이 필요하다."],
+ [4,"The average adult aged 26-64 years needs about seven to nine hours of sleep in every 24, according to the US National Sleep Foundation's latest review of the evidence.","미국 국립수면재단(NSF)이 근거를 가장 최근에 검토한 결과에 따르면, 26~64세의 평균적인 성인은 24시간마다 약 7~9시간의 수면이 필요하다."],
+ [5,"Why there is such a <u class=\"req\" data-v=\"wide\">wide</u> variation in how much sleep people need has been a <u data-v=\"longstanding\">long-standing</u> mystery.","사람마다 필요한 수면량에 왜 그토록 큰 차이가 있는지는 오랫동안 풀리지 않은 수수께끼였다."],
+ [5,"Yet over the last few years, scientists have <u data-v=\"pinpoint\">pinpointed</u> <u data-v=\"wealth\">a wealth of</u> ways in which genetics play a role.","그러나 지난 몇 년 동안 과학자들은 유전적 요인이 작용하는 아주 다양한 방식을 정확히 찾아냈다."],
+ [5,"From the rare <u data-v=\"mutation\">mutations</u> carried by people like Bernard, to hundreds of much more common <u class=\"req\" data-v=\"variant\">variants</u>, here's why some people <u class=\"req\" data-v=\"getawaywith\">get away with</u> very little sleep.","버나드 같은 사람들이 지닌 희귀한 돌연변이부터 훨씬 더 흔한 수백 가지 변이에 이르기까지, 일부 사람들이 아주 적게 자고도 별 탈 없이 지내는 이유를 살펴보자."],
+ [5,"In the future, these findings could be used to help protect those who can't get enough from some of the usual <u data-v=\"consequence\">consequences</u>.","앞으로 이러한 발견은 잠을 충분히 자지 못하는 사람들을 수면 부족이 흔히 불러오는 악영향 중 일부로부터 보호하는 데 쓰일 수 있을 것이다."]
+];
+
+/* 구문: [ ] 명사, ( ) 형용사, 〈 〉 부사, ①② 병렬, {x} 생략 */
+const SYN=[
+{tags:["for as long as","현재완료 계속"],key:1,
+ b:"〈For as long as she can remember〉, Aimee Pugh Bernard hasn't needed much sleep.",
+ ko:"3형식(S+V+O) + 시간 부사절",
+ u:[["For as long as she can remember,","기억할 수 있는 한 오래전부터","m","M 부사절(기간)","접속사구 + 절"],["Aimee Pugh Bernard","에이미 퓨 버나드는","s","S 주어","고유명사"],["hasn't needed","필요로 하지 않아 왔다","v","V 3형식","현재완료(계속)"],["much sleep.","많은 잠을","o","O 목적어","much + 불가산명사"]],
+ n:["<b>for as long as</b> = ~하는 기간 내내 → 과거부터 지금까지 이어지므로 <b>현재완료</b>(hasn't needed)와 짝을 이룹니다.","<span class='en'>as long as</span>만 쓰면 보통 조건 '~하기만 하면'(= so long as, provided that). <span class='en'>for</span>가 붙으면 '기간'이라는 점에 주의.","<span class='en'>much sleep</span>: sleep은 '잠'이라는 뜻일 때 불가산 → many sleep <span class='x'>(X)</span>"]},
+{tags:["to부정사 병렬","to 생략"],
+ b:"Today she tends to ①go to bed around 22:00 and ②{to}wake up around 04:30.",
+ ko:"tend to V(~하는 경향이 있다) + to부정사 두 개 병렬",
+ u:[["Today","요즘","m","M 문장 수식","부사"],["she","그녀는","s","S 주어","대명사"],["tends","~하는 편이다","v","V 자동사","tend to V"],["to go to bed around 22:00","밤 10시쯤 잠자리에 들고","m","V′ 1형식 ①","to부정사"],["and wake up around 04:30.","새벽 4시 반쯤 일어나는","m","V′ 1형식 ②","to 생략 병렬"]],
+ n:["<b>A and B 병렬</b>: and 뒤의 to는 반복을 피해 생략 → <span class='en'>tends to go … and (to) wake up</span>. 편입 문법에서 and 뒤 동사 형태(원형)를 묻는 문제로 나옵니다.","<span class='en'>today</span>는 '오늘'뿐 아니라 '요즘, 오늘날'(= nowadays)의 뜻.","<span class='en'>wake up</span>(잠에서 깨다) ≠ <span class='en'>get up</span>(잠자리에서 일어나다) — 4번 get 구동사 참고"]},
+{tags:["wide 부사","2형식","a-형용사"],key:1,
+ b:"\"I'm wide awake. I cannot stay 〈in bed〉,\" she says.",
+ ko:"2형식(S+be+C) / 1형식(S+V+장소 부사구)",
+ u:[["I","나는","s","S 주어","대명사"],["'m","~이다","v","V 2형식","be동사"],["wide","완전히","m","M 보어 수식","부사"],["awake.","깨어 있는","c","C 주격보어","형용사(서술적)"],["I","나는","s","S 주어","대명사"],["cannot stay","머물 수 없다","v","V 1형식","조동사 + 동사"],["in bed,","침대에","m","M 장소","전치사구"],["she says.","그녀가 말한다","m","S+V 전달절","삽입"]],
+ n:["<b>wide</b>는 형용사(넓은)만이 아니라 <b>부사 '완전히, 활짝'</b>: wide awake, wide open. '널리'라는 추상적 의미는 widely.","<b>awake</b>는 a-로 시작하는 서술적 형용사(asleep, alive, alike, aware) → 주로 보어 자리.","<span class='en'>stay in bed</span>(1형식: 장소) vs <span class='en'>stay awake</span>(2형식: stay + 형용사 보어) — 같은 stay라도 뒤에 무엇이 오는지로 문형이 갈림."]},
+{tags:["동격","fall + 형용사"],
+ b:"Sometimes Bernard, (an immunology professor at the University of Colorado), can't fall asleep right away.",
+ ko:"2형식(S+fall+C) + 주어 동격",
+ u:[["Sometimes","가끔","m","M 문장 수식","빈도부사"],["Bernard,","버나드는","s","S 주어","고유명사"],["an immunology professor at the University of Colorado,","콜로라도 대학교 면역학 교수인","m","M 동격(주어 보충)","명사구"],["can't fall","~하게 되지 못하다","v","V 2형식","조동사 + 동사"],["asleep","잠든 상태로","c","C 주격보어","형용사"],["right away.","곧바로","m","M 동사 수식","부사구"]],
+ n:["<b>콤마 + 명사구 + 콤마</b> = 동격. 주어와 동사 사이가 멀어져도 동사는 주어 Bernard에 맞춥니다.","<b>fall + 형용사</b> = '~한 상태가 되다' 2형식: fall asleep, fall ill, fall silent, fall short."]},
+{tags:["습성의 will","시간의 소유격"],key:1,
+ b:"Then she'll log only five hours' slumber.",
+ ko:"3형식(S+V+O)",
+ u:[["Then","그런 날이면","m","M 문장 수식","부사"],["she","그녀는","s","S 주어","대명사"],["'ll log","기록하게 된다","v","V 3형식","will(습성) + 동사"],["only five hours' slumber.","고작 5시간의 잠을","o","O 목적어","시간의 소유격 + 명사"]],
+ n:["여기 <b>will</b>은 미래가 아니라 <b>습성·경향</b>('그런 날엔 으레 ~한다'). 다음 문단의 She'll walk her dog…도 같은 will.","<b>five hours' slumber</b>: 시간·거리·가격 명사는 's로 소유격을 만들 수 있음 → a day's work, ten minutes' walk. 기사 제목 <span class='en'>four hours' sleep</span>도 같은 구조.","<b>log</b>(기록하다)는 다음 문장의 <b>clock</b>(기록하다)으로 다시 바꿔 말합니다(패러프레이즈)."]},
+{tags:["문장 부사","feel + 분사 보어"],
+ b:"〈Perhaps most surprisingly〉, Bernard usually still feels energised 〈the next day〉.",
+ ko:"2형식(S+feel+C)",
+ u:[["Perhaps most surprisingly,","아마 가장 놀라운 점은","m","M 문장 전체 수식","부사구"],["Bernard","버나드가","s","S 주어","고유명사"],["usually still","대개 여전히","m","M 동사 수식","부사"],["feels","느낀다","v","V 2형식","감각동사"],["energised","활력이 넘친다고","c","C 주격보어","과거분사(형용사)"],["the next day.","다음 날","m","M 시간","부사적 명사구"]],
+ n:["<b>surprisingly</b>가 문장 맨 앞 = 문장 전체에 대한 평가: '놀랍게도' = It is surprising that ~.","<b>feel + 형용사/분사</b>: feels energised <span class='x'>energetically (X)</span> — 감각동사 뒤는 부사가 아니라 보어.","energised는 영국식 철자(-ise). 미국식은 energized."]},
+{tags:["동사 3개 병렬","하이픈 복합형용사"],
+ b:"She'll ①walk her dog, ②sweat through an hour-long gym session, and ③clock 1.5 hours of work 〈before 08:00〉.",
+ ko:"will 공유 + 동사구 A, B, and C 병렬",
+ u:[["She","그녀는","s","S 주어","대명사"],["'ll walk her dog,","개를 산책시키고","v","V① 3형식 + O","walk = 산책시키다(타동사)"],["sweat through an hour-long gym session,","1시간짜리 헬스를 땀 흘리며 해내고","v","V② 3형식(구동사) + O","sweat through"],["and clock 1.5 hours of work","1시간 반의 일을 해치운다","v","V③ 3형식 + O","clock = 기록하다"],["before 08:00.","오전 8시 전에","m","M 시간","전치사구"]],
+ n:["<b>A, B, and C</b> 병렬: 조동사 'll(will)을 세 동사가 함께 씁니다 → 모두 동사원형.","<b>walk her dog</b>: walk가 타동사로 '(개를) 산책시키다'. walk a person home(집까지 바래다주다)도 같은 용법.","<b>an hour-long session</b>: 하이픈으로 묶인 복합형용사 속 명사는 <b>단수</b> → a five-year-old boy, a ten-minute walk <span class='x'>ten-minutes (X)</span>"]},
+{tags:["동격 to부정사","on = 의존"],key:1,
+ b:"Friends gawk at Bernard's ability (to do so much 〈on so little sleep〉).",
+ ko:"3형식(S+구동사+O) + 명사 수식 to부정사",
+ u:[["Friends","친구들은","s","S 주어","명사(복수)"],["gawk at","넋 놓고 쳐다본다","v","V 3형식(구동사)","자동사 + 전치사"],["Bernard's ability","버나드의 능력을","o","O 목적어","소유격 + 명사"],["to do so much","그렇게 많은 일을 해내는","m","M ability 수식 · V′ 3형식","to부정사(형용사적)"],["on so little sleep.","그렇게 적은 잠으로","m","M 근거·수단","전치사구"]],
+ n:["<b>ability to V</b>: to부정사가 앞 명사의 내용을 설명(동격). 같은 부류 → the decision to V, the chance to V, the attempt to V.","<b>on</b> = '~에 의지해서, ~을 연료로': live on rice, run on electricity, survive on four hours' sleep.","<b>so much ↔ so little</b> 대조로 놀라움을 강조. much/little은 불가산(work, sleep)에 씁니다."]},
+{tags:["상황의 it","대시 = 부연"],
+ b:"But 〈in her family〉, it's normal – her father and brother are the same.",
+ ko:"2형식 + 2형식 (대시로 이유 덧붙임)",
+ u:[["But","하지만","m","M 접속(역접)","등위접속사"],["in her family,","그녀의 집안에서는","m","M 장소·범위","전치사구"],["it","그것은","s","S 주어","상황의 it"],["'s","~이다","v","V 2형식","be동사"],["normal","정상적인","c","C 주격보어","형용사"],["– her father and brother","아버지와 형제도","s","S 주어","명사구(복수)"],["are","~이다","v","V 2형식","be동사"],["the same.","똑같은","c","C 주격보어","the same"]],
+ n:["<b>대시(–)</b> 뒤 = 앞 내용의 <b>근거·부연</b>. '정상이다' 왜? '아버지와 형제도 같으니까'. 콜론(:)과 대시 뒤는 독해 문제에서 앞 문장을 다시 말해 주는 단서입니다.","이 문장이 글 전체의 <b>복선</b>: 가족 모두 같다 → 유전 → 5문단 genetics로 연결."]},
+{tags:["most of + 대명사","생략"],
+ b:"Most of us, of course, require more {sleep}.",
+ ko:"3형식(S+V+O)",
+ u:[["Most of us,","우리 대부분은","s","S 주어","most of + 대명사"],["of course,","물론","m","M 삽입","부사구"],["require","필요로 한다","v","V 3형식","동사"],["more.","더 많은 (잠)을","o","O 목적어","대명사(more sleep)"]],
+ n:["<b>most of + 한정된 명사/대명사</b>: most of us, most of the students ⭕ / most of students <span class='x'>(X)</span> / most students ⭕","<b>more</b> = more sleep. 앞에서 말한 명사는 반복하지 않고 생략 → 독해에서 '무엇이 더?'를 스스로 채워 읽기."]},
+{tags:["수일치","분사 후치수식","according to"],
+ b:"The average adult (aged 26-64 years) needs about seven to nine hours of sleep 〈in every 24 {hours}〉, 〈according to the US National Sleep Foundation's latest review of the evidence〉.",
+ ko:"3형식(S+V+O) — 주어는 단수 adult",
+ u:[["The average adult","평균적인 성인은","s","S 주어","명사구(단수)"],["aged 26-64 years","26~64세의","m","M 주어 수식","과거분사구"],["needs","필요로 한다","v","V 3형식","3인칭 단수"],["about seven to nine hours of sleep","약 7~9시간의 수면을","o","O 목적어","명사구"],["in every 24,","24시간마다","m","M 빈도","전치사구(hours 생략)"],["according to the US National Sleep Foundation's latest review of the evidence.","미국 국립수면재단의 최신 근거 검토에 따르면","m","M 문장 전체 수식","구전치사 + 명사구"]],
+ n:["<b>수일치</b>: 주어 adult(단수) → <b>needs</b>. 중간에 aged 26-64 years(복수처럼 보이는 수식어)가 끼어 있어도 무시.","<b>aged + 나이</b> = '~살의' (people aged 65 and over). 주격 관계대명사 + be 생략: adult (who is) aged ~","<b>according to + 명사</b> / <b>according as + 절</b>(~에 따라서) 구별.","<b>every + 수사 + 복수명사</b>: every three days(사흘마다) — 여기선 hours가 생략된 every 24."]},
+{tags:["명사절 주어","간접의문문","핵심 구문"],key:1,
+ b:"[Why there is such a wide variation in [how much sleep people need]] has been a long-standing mystery.",
+ ko:"2형식(S+V+C) — 주어가 의문사절(명사절)",
+ u:[["Why there is such a wide variation","왜 그렇게 큰 차이가 있는지는","s","S 주어(명사절)","의문사절"],["in how much sleep people need","사람들이 필요로 하는 수면량에","m","M variation 수식","전치사 + 명사절"],["has been","~였다","v","V 2형식","현재완료(단수)"],["a long-standing mystery.","오래된 수수께끼","c","C 주격보어","명사구"]],
+ n:["<b>명사절이 주어</b> → 주어가 길어도 <b>단수 취급</b>: has been <span class='x'>have been (X)</span>","<b>간접의문문 어순</b>: 의문사 + S + V → why <b>there is</b> ~ <span class='x'>why is there (X)</span>","속 명사절 <span class='en'>how much sleep people need</span>: need의 목적어 how much sleep이 앞으로 나간 구조 (people need how much sleep → how much sleep people need).","<b>such a + 형용사 + 명사</b> = so + 형용사 + a + 명사: such a wide variation = so wide a variation"]},
+{tags:["전치사 + 관계대명사","현재완료"],key:1,
+ b:"Yet 〈over the last few years〉, scientists have pinpointed a wealth of ways (in which genetics play a role).",
+ ko:"3형식(S+V+O) + 관계절(내부 3형식)",
+ u:[["Yet","그러나","m","M 접속(역접)","접속사"],["over the last few years,","지난 몇 년 동안","m","M 기간","전치사구"],["scientists","과학자들은","s","S 주어","명사"],["have pinpointed","정확히 찾아냈다","v","V 3형식","현재완료"],["a wealth of ways","아주 많은 방식을","o","O 목적어","명사구"],["in which genetics play a role.","유전학이 역할을 하는","m","M ways 수식 · V′ 3형식","전치사 + 관계대명사절"]],
+ n:["<b>in which + 완전한 문장</b>: genetics(S) play(V) a role(O)가 빠진 것 없이 완전 → 앞에 전치사가 붙은 관계대명사. 관계대명사 which 혼자라면 뒤가 불완전해야 합니다.","<b>the way how</b>는 함께 못 씀 <span class='x'>(X)</span> → the way / how / the way in which / the way that ⭕","<b>over the last few years</b>(지난 몇 년에 걸쳐) → 현재완료 have pinpointed와 짝.","genetics는 학문명이면 단수(Genetics is ~)지만 여기서는 '유전적 요인들'이라 복수 동사 play."]},
+{tags:["from A to B","Here's 도치","비교급 강조"],key:1,
+ b:"〈From the rare mutations (carried by people like Bernard), to hundreds of much more common variants〉, here's [why some people get away with very little sleep].",
+ ko:"1형식 도치(Here + V + S) — 주어가 명사절",
+ u:[["From the rare mutations","희귀한 돌연변이부터","m","M 범위(from A)","전치사구"],["carried by people like Bernard,","버나드 같은 사람들이 지닌","m","M mutations 수식","과거분사구"],["to hundreds of much more common variants,","훨씬 흔한 수백 가지 변이까지","m","M 범위(to B)","전치사구"],["here","여기에","m","M 유도부사","부사"],["'s","있다","v","V 1형식","be동사(도치)"],["why some people get away with very little sleep.","왜 어떤 사람은 아주 적게 자고도 무사한지","s","S 주어(명사절)","의문사절"]],
+ n:["<b>Here is + 주어</b>: here가 앞에 오면 주어·동사 도치 → here's [why ~] = 지금부터 '이유'를 보여 주겠다는 <b>글 전개 예고</b>.","<b>from A to B</b>: 이어질 본문 내용의 범위(희귀 돌연변이 → 흔한 변이)를 미리 보여 줌 → 순서배열·문단 요지 문제의 단서.","<b>carried by ~</b>: 과거분사 후치 수식(돌연변이가 '지니어지는' 수동 관계). 과거시제 동사 아님!","<b>much more common</b>: 비교급 강조 much, even, far, still, a lot <span class='x'>very (X)</span>"]},
+{tags:["be used to V","help + 원형","protect A from B"],key:1,
+ b:"〈In the future〉, these findings could be used 〈to help protect those (who can't get enough {sleep}) from some of the usual consequences〉.",
+ ko:"3형식 수동태 + 목적의 to부정사(내부 protect A from B)",
+ u:[["In the future,","앞으로","m","M 시간","전치사구"],["these findings","이러한 발견은","s","S 주어","명사(복수)"],["could be used","사용될 수 있을 것이다","v","V 수동태","조동사 + be p.p."],["to help protect","보호하는 데 도움이 되도록","m","M 목적 · V′ 3형식","to부정사 + 원형부정사"],["those who can't get enough","잠을 충분히 못 자는 사람들을","o","O′ protect의 목적어","those who ~"],["from some of the usual consequences.","흔한 악영향 중 일부로부터","m","M protect A from B","전치사구"]],
+ n:["<b>be used to V</b>(~하는 데 사용되다, 수동) vs <b>be used to V-ing</b>(~에 익숙하다) vs <b>used to V</b>(예전엔 ~했다). 시험 단골 3종 세트.","<b>help (to) + 동사원형</b>: help protect ⭕ / help protecting <span class='x'>(X)</span>","<b>protect A from B</b>(B로부터 A를 보호하다): protect / shield / guard A from B. 비슷한 모양 prevent / keep / stop A <b>from V-ing</b>(A가 ~하지 못하게 하다)와 구별.","<b>those who</b> = the people who (~하는 사람들). get enough = get enough sleep."]}
+];
+
+const VOCAB=[
+{id:"forlong",w:"for as long as",pr:"포 애즈 롱 애즈",req:1,
+ s:[["접","~하는 (기간) 내내, ~하는 한 오래"],["","(for as long as I can remember) 기억할 수 있는 한 오래전부터, 아주 어릴 때부터"]],
+ ex:[["<b>For as long as</b> she can remember, Aimee Pugh Bernard hasn't needed much sleep.","기억하는 아주 오래전부터 에이미 퓨 버나드는 잠이 많이 필요하지 않았다.",1],["You can stay here <b>for as long as</b> you like.","원하는 만큼 오래 여기 머물러도 돼."]],
+ x:["<b>ever since I can remember</b> = for as long as I can remember (현재완료와 짝)","<b>as long as / so long as</b> + 절: ~하기만 하면 (조건 = provided that, only if)","<b>as far as</b> I can remember / I know: 내가 기억하는 / 아는 범위에서는"],
+ c:["As long as you study, you'll pass. (조건) ↔ I'll wait for as long as it takes. (기간: 걸리는 만큼 내내)","as far as I know = to the best of my knowledge (범위)"]},
+{id:"wide",w:"wide",pr:"와이드",req:1,
+ s:[["a.","① 넓은, 폭이 ~인"],["a.","② (범위·차이가) 큰, 광범위한 — a wide variation 큰 차이, a wide range of 다양한"],["ad.","③ 활짝, 완전히 — wide awake 완전히 깬, wide open 활짝 열린"],["ad.","④ 빗나가서 — wide of the mark 과녁을 빗나간, 엉뚱한"]],
+ ex:[["\"I'm <b>wide</b> awake. I cannot stay in bed.\"","\"정신이 완전히 말똥말똥해요. 침대에 그대로 누워 있을 수 없어요.\"",1],["Why there is such a <b>wide</b> variation in how much sleep people need …","사람마다 필요한 수면량에 왜 그토록 큰 차이가 있는지…",1]],
+ x:["<b>wide awake</b> 완전히 깬, 빈틈없는 ↔ <b>fast / sound asleep</b> 깊이 잠든","<b>far and wide</b> 널리, 방방곡곡 · <b>widespread</b> 널리 퍼진 · <b>wide-ranging</b> 광범위한","<b>wide of the mark</b> 엉뚱한, 빗나간 (= off the mark, irrelevant)"],
+ c:["wide(활짝·완전히, 물리적) vs widely(널리·크게, 추상적): The door was wide open. / The book is widely read. / Opinions differ widely.","awake·asleep·alive·alike·aware·afraid 같은 a-형용사는 주로 보어 자리에 쓴다: The baby is asleep. (a sleeping baby ⭕ / an asleep baby ✕)"],
+ syn:"broad, extensive, sweeping(②) · fully, completely(③)"},
+{id:"log",w:"log",pr:"로그",req:1,
+ s:[["n.","① 통나무"],["n.","② (항해·비행·작업) 일지, 기록 (= logbook)"],["v.","③ (공식적으로) 기록하다"],["v.","④ (시간·거리를) 기록하다, 달성하다 — log five hours' sleep, log 10,000 km"]],
+ ex:[["Then she'll <b>log</b> only five hours' slumber.","그런 날이면 그녀의 수면 기록은 고작 5시간에 그친다.",1],["The pilot has <b>logged</b> over 3,000 flying hours.","그 조종사는 비행시간 3,000시간 이상을 기록했다."]],
+ x:["<b>log in / on</b> 접속하다 ↔ <b>log out / off</b> 접속을 끊다","<b>sleep like a log</b> 세상모르고 푹 자다 (통나무처럼!)","<b>blog</b> = web + log"],
+ c:["'기록하다' 동사 묶음: log · clock(시간·속도를 기록하다) · record · register · rack up(점수·기록을 쌓아 올리다)"]},
+{id:"slumber",w:"slumber",pr:"슬럼버",req:1,
+ s:[["n.","① (문어) 잠, 수면"],["n.","② (활동의) 침체, 휴지 상태"],["v.","③ 잠자다, (편안히) 자다"],["v.","④ 활동하지 않고 잠들어 있다, 휴면하다"]],
+ ex:[["Then she'll log only five hours' <b>slumber</b>.","그런 날이면 고작 5시간 잠을 잔다.",1],["The volcano has <b>slumbered</b> for centuries.","그 화산은 수 세기 동안 잠들어 있었다(휴화산이었다)."]],
+ x:["<b>slumber party</b> 파자마 파티 (= sleepover)","<b>fall into a deep slumber</b> 깊은 잠에 빠지다","<b>slumberous</b> 졸린, 잠이 오게 하는"],
+ c:["잠 관련 동의어: sleep(일반) · slumber(문어·시적) · doze / nap / snooze(잠깐 졸기) · repose(휴식, 문어) · somnolent(졸리는 — 편입 어휘)","dormant(휴면 중인: a dormant volcano) ≈ slumbering"]},
+{id:"gawk",w:"gawk",pr:"고크",req:1,
+ s:[["v.","① (at) 넋을 놓고 / 멍하니 쳐다보다, 입을 벌리고 바라보다"],["n.","② (드묾) 얼간이, 멍청이"]],
+ ex:[["Friends <b>gawk at</b> Bernard's ability to do so much on so little sleep.","친구들은 그렇게 적게 자고도 그렇게 많은 일을 해내는 버나드의 능력에 입을 떡 벌린다.",1],["Drivers slowed down to <b>gawk at</b> the accident.","운전자들이 사고 현장을 구경하려고 속도를 늦췄다."]],
+ x:["<b>gawker</b> 멍하니 구경하는 사람","<b>gawky</b> 어색한, 볼품없는 (= awkward, ungainly)"],
+ c:["'보다' 뉘앙스: stare(빤히) · gaze(감탄하며 오래) · gape(놀라 입 벌리고) · gawk(멍청하게·무례하게) · goggle(눈이 휘둥그레져서) · ogle(추파를 던지며) · glare(노려보다) · glance(흘끗)"],
+ syn:"gape, goggle, stare, rubberneck"},
+{id:"variant",w:"variant",pr:"베어리언트",req:1,
+ s:[["n.","① 변형, 이형(異形)"],["n.","② (생물) 변이, 변이체 · (바이러스) 변이주"],["a.","③ 다른, 변형된 — a variant spelling 다른 철자"]],
+ ex:[["… to hundreds of much more common <b>variants</b> …","…훨씬 더 흔한 수백 가지 변이에 이르기까지…",1],["'Colour' is a British <b>variant</b> of 'color'.","colour는 color의 영국식 변형 철자다."]],
+ x:["<b>vary</b> 다르다, 바꾸다 · <b>variable</b> 변하기 쉬운; 변수 · <b>variation</b> 변화, 차이 (a wide variation in ~)","<b>variety</b> 다양성 · <b>various</b> 다양한 · <b>variance</b> 차이, 불일치 → <b>at variance with</b> ~와 상충하는","<b>invariably</b> 변함없이, 언제나 (= always) · <b>invariable</b> 불변의"],
+ c:["기사 속 대비: rare mutations(드물고 효과가 큰 돌연변이) ↔ common variants(흔하고 효과가 작은 변이)","at variance with = inconsistent with, in conflict with (편입 빈출)"]},
+{id:"getawaywith",w:"get away with",pr:"겟 어웨이 위드",req:1,
+ s:[["구동사","① (나쁜 짓을) 하고도 벌을 받지 않다, 무사히 넘어가다"],["","② (적은 것으로) 그럭저럭 해내다, 별 탈 없이 지내다"],["","③ (물건을) 가지고 달아나다"]],
+ ex:[["… here's why some people <b>get away with</b> very little sleep.","…일부 사람들이 아주 적게 자고도 별 탈 없이 지내는 이유를 살펴보자.",1],["He cheated on the test and <b>got away with</b> it.","그는 시험에서 부정행위를 하고도 들키지 않았다."]],
+ x:["<b>get away with it</b> 들키지 않고 넘어가다","<b>get away with murder</b> (비유) 무슨 짓을 해도 무사하다, 제멋대로 굴다","<b>get off scot-free</b> 처벌을 전혀 받지 않다"],
+ c:["get away with(대가 없이 넘어가다) vs get by on(부족한 것으로 버티다): He gets by on five hours' sleep. → 4번 get 구동사 참고"],
+ syn:"escape punishment, go unpunished"},
+{id:"energise",w:"energise",pr:"에너자이즈",
+ s:[["v.","① 활기를 북돋우다, 기운 나게 하다 (미 energize)"],["v.","② (기계에) 전기를 통하게 하다"]],
+ ex:[["Bernard usually still feels <b>energised</b> the next day.","버나드는 다음 날에도 대개 여전히 활력이 넘친다.",1],["A short walk can <b>energise</b> you.","짧은 산책이 기운을 북돋워 줄 수 있다."]],
+ x:["<b>energetic</b> 활동적인, 정력적인 · <b>energy</b> 에너지"],
+ c:["동의어: invigorate, revitalize, enliven, galvanize(자극해 행동하게 하다)","반의어 함정: <b>enervate</b>(기력을 빼앗다) — energize와 생김새는 비슷하지만 뜻은 정반대!"]},
+{id:"clock",w:"clock",pr:"클락",
+ s:[["n.","① 시계"],["v.","② (시간·속도·기록을) 재다, 기록하다"],["v.","③ (구어) 알아채다"]],
+ ex:[["… and <b>clock</b> 1.5 hours of work before 08:00.","…오전 8시 전에 1시간 반 동안 일을 해치운다.",1],["The car was <b>clocked</b> at 160 km/h.","그 차는 시속 160km로 측정됐다."]],
+ x:["<b>clock in / on</b> 출근 기록을 하다 ↔ <b>clock out / off</b>","<b>around the clock</b> 24시간 내내","<b>body clock</b> 생체 시계 (= circadian clock) — 5번 배경지식"],
+ c:["log와 clock: 기사는 '기록하다'를 log → clock으로 바꿔 씀 (같은 말 반복 피하기 = 패러프레이즈)"]},
+{id:"immunology",w:"immunology",pr:"이뮤날러지",
+ s:[["n.","면역학"]],
+ ex:[["… an <b>immunology</b> professor at the University of Colorado …","…콜로라도 대학교의 면역학 교수…",1]],
+ x:["<b>immune</b> 면역성이 있는(to); 면제된(from) · <b>immunity</b> 면역; 면제 (diplomatic immunity 외교관 면책특권)","<b>immunize</b> 면역력을 갖게 하다 · <b>autoimmune</b> 자가면역의"],
+ c:["immune from tax = exempt from (면제된) / immune to criticism = impervious to (끄떡없는)"]},
+{id:"require",w:"require",pr:"리콰이어",
+ s:[["v.","① 필요로 하다 (= need)"],["v.","② 요구하다, 의무화하다 — be required to V"]],
+ ex:[["Most of us, of course, <b>require</b> more.","물론 우리 대부분은 더 많은 잠이 필요하다.",1],["All visitors are <b>required</b> to sign in.","모든 방문객은 서명하고 들어가야 한다."]],
+ x:["<b>requirement</b> 필요조건 · <b>requisite</b> 필수적인; 필수품 · <b>prerequisite</b> 전제조건(for)"],
+ c:["require that + S + (should) 동사원형: The law requires that every driver (should) wear a seatbelt. (당위의 that절 — 편입 문법 단골)"]},
+{id:"longstanding",w:"long-standing",pr:"롱스탠딩",
+ s:[["a.","오래된, 오랫동안 계속된"]],
+ ex:[["… has been a <b>long-standing</b> mystery.","…오랫동안 풀리지 않은 수수께끼였다.",1],["The two countries have a <b>long-standing</b> dispute over the border.","두 나라는 국경 문제로 오래 분쟁해 왔다."]],
+ x:["<b>of long standing</b> 오래된 (= long-standing)"],
+ c:["동의어: longtime, age-old, long-established, chronic(만성적인 — 나쁜 것), inveterate(뿌리 깊은, 상습적인), entrenched(확고히 자리 잡은)","반의어: recent, newfound, nascent(초기의, 막 생겨난)"]},
+{id:"pinpoint",w:"pinpoint",pr:"핀포인트",
+ s:[["v.","① (위치·원인을) 정확히 찾아내다, 정확히 짚어내다"],["n.","② 핀 끝, 아주 작은 점"],["a.","③ 정확한 — pinpoint accuracy 정확무비"]],
+ ex:[["… scientists have <b>pinpointed</b> a wealth of ways …","…과학자들은 아주 다양한 방식을 정확히 찾아냈다.",1],["Doctors couldn't <b>pinpoint</b> the cause of the pain.","의사들은 통증의 원인을 정확히 짚어내지 못했다."]],
+ c:["동의어: identify, locate, determine, put one's finger on (정확히 짚다)"]},
+{id:"wealth",w:"a wealth of",pr:"어 웰쓰 오브",
+ s:[["표현","풍부한, 아주 많은 (= a lot of, an abundance of)"]],
+ ex:[["… <b>a wealth of</b> ways in which genetics play a role.","…유전적 요인이 작용하는 아주 다양한 방식.",1],["The library offers <b>a wealth of</b> information.","그 도서관은 풍부한 정보를 제공한다."]],
+ x:["<b>wealth</b> n. 부, 재산 · <b>wealthy</b> 부유한 (= affluent, opulent)"],
+ c:["양 표현 묶음: a plethora of(과다한, 넘쳐나는) · a myriad of(무수한) · a host of(다수의) ↔ a dearth of(부족한 = scarcity) · a modicum of(약간의)"]},
+{id:"mutation",w:"mutation",pr:"뮤테이션",
+ s:[["n.","① (유전자) 돌연변이"],["n.","② 변화, 변형"]],
+ ex:[["From the rare <b>mutations</b> carried by people like Bernard …","버나드 같은 사람들이 지닌 희귀한 돌연변이부터…",1],["A single <b>mutation</b> can change how a protein works.","돌연변이 하나가 단백질의 작동 방식을 바꿀 수 있다."]],
+ x:["<b>mutate</b> 돌연변이하다 · <b>mutant</b> 돌연변이체","어근 mut(바꾸다): <b>mutable</b> 변하기 쉬운 ↔ <b>immutable</b> 불변의 (편입 빈출) · <b>transmute</b> 변형시키다 · <b>commute</b> (형을) 감형하다; 통근하다"],
+ c:["immutable = unchangeable, unalterable, fixed"]},
+{id:"consequence",w:"consequence",pr:"칸서퀀스",
+ s:[["n.","① (주로 나쁜) 결과, 영향"],["n.","② 중요성 — of no consequence 중요하지 않은"]],
+ ex:[["… protect those who can't get enough from some of the usual <b>consequences</b>.","…잠을 충분히 못 자는 사람들을 흔한 악영향 중 일부로부터 보호하다.",1],["Lack of sleep has serious health <b>consequences</b>.","수면 부족은 심각한 건강상 결과를 낳는다."]],
+ x:["<b>consequently</b> 그 결과 (= as a result, hence) · <b>consequent</b> 결과로 일어나는","<b>consequential</b> 중대한 ↔ <b>inconsequential</b> 사소한 (= trivial, negligible)"],
+ c:["inconsequential은 '결과가 없는'이 아니라 '사소한, 하찮은' — 편입 동의어 문제 함정"]}
+];
+
+const GET=[
+ ["away","멀리 벗어남 → 대가·처벌에서 벗어남",[
+  ["get away (from)","떠나다, 벗어나다, 휴가 가다","I need to <b>get away from</b> the city for a few days.","며칠 도시를 벗어나야겠어.","escape, leave · getaway(n. 도주; 짧은 휴가)"],
+  ["get away with ★","하고도 무사하다 / 적은 것으로 별 탈 없이 지내다","Some people <b>get away with</b> very little sleep.","어떤 사람들은 아주 적게 자고도 별 탈이 없다.","escape punishment, go unpunished",1]]],
+ ["by","옆을 스쳐 지나감 → 간신히 통과",[
+  ["get by (on / with) ★","그럭저럭 살아가다, 버티다","Few people can <b>get by on</b> four hours' sleep.","4시간 수면으로 버틸 수 있는 사람은 거의 없다.","manage, make do, scrape by, subsist",1]]],
+ ["over","장애물 위로 넘어감 → 극복, 끝냄",[
+  ["get over","극복하다, (병·충격에서) 회복하다","It took him two weeks to <b>get over</b> the flu.","그가 독감에서 회복하는 데 2주가 걸렸다.","overcome, recover from"],
+  ["get A over with","(싫은 일을) 해치워 버리다","Let's <b>get</b> the exam <b>over with</b>.","시험을 얼른 해치워 버리자.","finish, be done with"]]],
+ ["through","관통 → 끝까지 통과",[
+  ["get through","(힘든 시기를) 견뎌 내다; 끝내다; 통과하다","Coffee helped me <b>get through</b> the night shift.","커피 덕분에 야간 근무를 버텼다.","endure, survive, complete"],
+  ["get through to","(전화가) 연결되다; 이해시키다","I just can't <b>get through to</b> him.","그 사람한테는 도무지 말이 안 통해.","reach, make understand"]]],
+ ["across","가로질러 건너편에 닿음 → 생각 전달",[
+  ["get across","(생각을) 전달하다, 이해시키다","She used a simple diagram to <b>get</b> her point <b>across</b>.","그녀는 간단한 도표로 요점을 전달했다.","convey, communicate, put across"]]],
+ ["along / on","나란히, 붙어서 계속 → 함께 잘 지냄, 계속함",[
+  ["get along (with)","사이좋게 지내다; 그럭저럭 해 나가다","My brother and I <b>get along</b> well.","형과 나는 사이가 좋다.","get on (with), be on good terms"],
+  ["get on with","(하던 일을) 계속하다; (사람과) 잘 지내다","Stop chatting and <b>get on with</b> your work.","수다 그만 떨고 하던 일 계속해.","continue, proceed with"]]],
+ ["around / round","빙 돌아감 → 피해 감, 퍼짐, 마침내 닿음",[
+  ["get around","돌아다니다; (소문이) 퍼지다; (규칙·문제를) 피해 가다","They found a way to <b>get around</b> the rules.","그들은 규칙을 피해 갈 방법을 찾아냈다.","circumvent, bypass, evade"],
+  ["get around to","(미루던 일을) 마침내 하다","I finally <b>got around to</b> cleaning my room.","드디어 미루던 방 청소를 했다.","find time for"]]],
+ ["at","한 점을 겨냥 → 넌지시 가리킴",[
+  ["get at","넌지시 말하다, 의미하다; 손이 닿다; 알아내다","What are you <b>getting at</b>?","무슨 말을 하려는 거야?","imply, insinuate, drive at"]]],
+ ["off / out of","떨어져 나감, 밖으로 → 면함, 빠져나감",[
+  ["get off","내리다; (가벼운 처벌로) 풀려나다","He <b>got off</b> with a warning.","그는 경고만 받고 풀려났다.","be let off, escape (punishment)"],
+  ["get out of","(의무·일을) 회피하다, 빠져나가다","She tried to <b>get out of</b> doing the dishes.","그녀는 설거지를 빠져나가려 했다.","evade, avoid, shirk, dodge"]]],
+ ["down","자리 잡고 내려앉음 → 착수 / 기분이 가라앉음",[
+  ["get down to","(본격적으로) 착수하다","Let's <b>get down to</b> business.","본론으로 들어갑시다.","set about, embark on, buckle down to"],
+  ["get A down","우울하게 하다","Lack of sleep really <b>gets</b> me <b>down</b>.","잠이 부족하면 정말 기분이 처진다.","depress, dispirit, discourage"]]],
+ ["back","되돌림 → 되갚음, 다시 연락",[
+  ["get back at","복수하다, 앙갚음하다","He wanted to <b>get back at</b> his rival.","그는 라이벌에게 앙갚음하고 싶었다.","retaliate against, take revenge on"],
+  ["get back to","나중에 다시 연락하다","I'll <b>get back to</b> you tomorrow.","내일 다시 연락드릴게요.","contact again, reply later"]]],
+ ["ahead / behind","앞으로 / 뒤로",[
+  ["get ahead","앞서다, 성공하다","Hard work is the key to <b>getting ahead</b>.","성실함이 앞서 나가는 비결이다.","succeed, advance, prosper"],
+  ["get behind (with)","뒤처지다; (계획·사람을) 지지하다","I <b>got behind with</b> my homework.","숙제가 밀렸다.","fall behind / support"]]],
+ ["up","위로 → 일어남, 꾸밈",[
+  ["get up ★","(잠자리에서) 일어나다","She wakes up at 4:30 and <b>gets up</b> right away.","그녀는 4시 반에 깨서 곧바로 일어난다.","rise · ※ wake up = 잠에서 깨다",1],
+  ["get up to","(장난·나쁜 짓을) 꾸미다, 벌이다","What have the kids been <b>getting up to</b>?","애들이 무슨 장난을 치고 있었던 거야?","be up to"]]],
+ ["관용 표현","덩어리로 외우기",[
+  ["get rid of","없애다, 제거하다","It's hard to <b>get rid of</b> bad sleep habits.","나쁜 수면 습관은 없애기 어렵다.","eliminate, dispose of, do away with"],
+  ["get the better of","이기다, 압도하다","Curiosity <b>got the better of</b> him.","그는 호기심을 이기지 못했다.","overcome, defeat, prevail over"],
+  ["get to","짜증나게 하다; (get to V) ~하게 되다","The noise is starting to <b>get to</b> me.","소음 때문에 슬슬 짜증이 난다.","annoy, irritate"],
+  ["get together","모이다, 만나다","Let's <b>get together</b> after the exam.","시험 끝나고 모이자.","meet, gather"],
+  ["get into","들어가다; (학교에) 합격하다; 빠져들다","She <b>got into</b> her dream university.","그녀는 꿈의 대학에 합격했다.","be admitted to, enter"]]]
+];
+
+const TEST=[
+ ["어휘 · 동의어","Friends <u>gawk</u> at Bernard's ability to do so much on so little sleep.",["gape","gloat","glance","grumble"],0,"gawk = 놀라 넋을 놓고 쳐다보다 ≈ <b>gape</b>(입을 벌리고 보다). gloat 고소해하다, glance 흘끗 보다, grumble 투덜대다."],
+ ["어휘 · 동의어","Why people's sleep needs differ has been a <u>long-standing</u> mystery.",["age-old","short-lived","newfound","trivial"],0,"long-standing = 오래된 ≈ <b>age-old</b>. short-lived 단명한, newfound 새로 발견한, trivial 사소한."],
+ ["어휘 · 반의어","Bernard usually still feels <u>energised</u> the next day. <span class='ko'>— 반대 뜻은?</span>",["invigorated","enervated","galvanized","revitalized"],1,"energise의 반대 = <b>enervate</b>(기력을 빼앗다). 생김새가 비슷해 '활력을 주다'로 착각하기 쉬운 편입 단골 함정."],
+ ["어휘 · 동의어","Scientists have pinpointed <u>a wealth of</u> ways in which genetics play a role.",["a dearth of","a plethora of","a modicum of","a lack of"],1,"a wealth of = 아주 많은 ≈ <b>a plethora of</b>. dearth·lack 부족, modicum 약간."],
+ ["구문 · 수일치","Why there is such a wide variation in how much sleep people need ______ a long-standing mystery.",["have been","has been","having been","to be"],1,"주어가 <b>명사절</b>(Why ~ need) → 단수 취급 → <b>has been</b>. 문장에 다른 동사가 없으므로 having been·to be는 불가."],
+ ["구문 · 간접의문문","I wonder ______ in how much sleep people need.",["why is there such a wide variation","why there is such a wide variation","why such a wide variation there is","there is why such a wide variation"],1,"간접의문문 어순 = <b>의문사 + 주어 + 동사</b> → why there is ~. there is 구문은 there + be + 주어 순서."],
+ ["구문 · 관계사","Scientists have found many ways ______ genetics play a role.",["which","how","in which","what"],2,"뒤가 genetics(S) play(V) a role(O)로 <b>완전한 문장</b> → 전치사 + 관계대명사 <b>in which</b>. the way(s) how는 함께 쓰지 않음."],
+ ["구문 · 분사","In 'the rare mutations <u>carried</u> by people like Bernard', carried의 역할은?",["과거시제 동사","명사를 뒤에서 꾸미는 과거분사","수동태의 동사","분사구문"],1,"mutations를 뒤에서 꾸미는 <b>과거분사</b>(돌연변이가 사람들에 의해 '지니어지는' 수동 관계). 문장의 동사는 here's의 's."],
+ ["구문 · 준동사","These findings could be used ______ those who can't get enough from the usual consequences.",["to help protecting","to help protect","helping protecting","to helping protect"],1,"be used <b>to V</b>(~하는 데 사용되다) + help + <b>동사원형</b> → to help protect. be used to V-ing(~에 익숙하다)와 구별."],
+ ["get 구동사","Few people can ______ four hours' sleep a night without feeling tired.",["get by on","get over","get across","get back at"],0,"<b>get by on</b> = (적은 것으로) 그럭저럭 버티다. get over 극복하다, get across 전달하다, get back at 복수하다."],
+ ["get 구동사","He cheated on the test and ______ it — nobody noticed.",["got along with","got away with","got down to","got rid of"],1,"<b>get away with</b> = 나쁜 짓을 하고도 무사하다. 기사에서는 '아주 적게 자고도 대가 없이 지낸다'로 쓰였어요."],
+ ["배경지식","버나드의 아버지와 형제도 잠이 적다는 사실과 가장 관련 깊은 설명은?",["드문 돌연변이 하나가 우성으로 유전된다","흔한 변이 수백 개가 아주 작은 효과를 낸다","어릴 때 형성된 수면 습관이 대물림된다","가족이 같은 시간대에 일하기 때문이다"],0,"가족 단위로 나타나는 자연적 단시간 수면(<b>FNSS</b>)은 DEC2 같은 <b>희귀 돌연변이 하나</b>가 상염색체 <b>우성</b>으로 유전되는 형태로 연구돼 왔습니다. 흔한 변이 수백 개는 일반인 사이의 작은 개인차를 설명합니다."]
+];
+
+/* ---------- 렌더 ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const plain=h=>h.replace(/<[^>]+>/g,'').replace(/&amp;/g,'&');
+
+function speak(text){
+  try{
+    const ss=window.speechSynthesis;if(!ss)return;ss.cancel();
+    const u=new SpeechSynthesisUtterance(text);u.lang='en-GB';u.rate=.92;
+    const v=ss.getVoices().find(v=>/en-GB/i.test(v.lang))||ss.getVoices().find(v=>/^en/i.test(v.lang));if(v)u.voice=v;
+    ss.speak(u);
+  }catch(e){}
+}
+
+/* 1. 원문 */
+(function(){
+  let html='',cur=0,n=0;
+  STORY.forEach((s,i)=>{
+    if(s[0]!==cur){ if(cur) html+='</div>'; cur=s[0]; html+=`<div class="para"><span class="para-no">¶${cur}</span>`; }
+    n++;
+    html+=`<span class="sent" data-i="${i}" tabindex="0" role="button" aria-expanded="false"><span class="sn">${n}</span>${s[1]}</span> <button class="speak" data-say="${i}" type="button" aria-label="${n}번 문장 듣기">🔊</button><span class="ko-line" id="ko${i}">${s[2]} <a href="#s${n}" class="muted" style="font-size:12.5px">구문분석 →</a></span> `;
+  });
+  html+='</div>';
+  $('#story').innerHTML=html;
+  $('#story').addEventListener('click',e=>{
+    const u=e.target.closest('u[data-v]');
+    if(u){e.stopPropagation();const id=u.dataset.v;const t=document.getElementById('v-'+id);if(t){t.scrollIntoView({behavior:'smooth',block:'start'});flash(t);}return;}
+    const b=e.target.closest('[data-say]');if(b){speak(plain(STORY[b.dataset.say][1]));return;}
+    const s=e.target.closest('.sent');if(s)toggleKo(s);
+  });
+  $('#story').addEventListener('keydown',e=>{const s=e.target.closest('.sent');if(s&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleKo(s);}});
+  function toggleKo(s){const k=$('#ko'+s.dataset.i);const on=!k.classList.contains('show');k.classList.toggle('show',on);s.classList.toggle('open',on);s.setAttribute('aria-expanded',on);}
+  $('#allKo').addEventListener('click',function(){const on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);this.textContent=on?'해석 모두 접기':'해석 모두 보기';document.querySelectorAll('.ko-line').forEach(k=>k.classList.toggle('show',on));document.querySelectorAll('.sent').forEach(s=>{s.classList.toggle('open',on);s.setAttribute('aria-expanded',on)});});
+  $('#readAll').addEventListener('click',()=>speak(STORY.map(s=>plain(s[1])).join(' ')));
+})();
+function flash(el){el.animate([{boxShadow:'0 0 0 3px color-mix(in srgb, var(--pen) 45%, transparent)'},{boxShadow:'0 0 0 0 transparent'}],{duration:1400,easing:'ease-out'});}
+
+/* 2. 구문분석 */
+function bracket(s){
+  return esc(s)
+   .replace(/\{([^}]+)\}/g,'<span class="omit">$1</span>')
+   .replace(/[①②③]/g,m=>`<span class="par">${m}</span>`)
+   .replace(/\[/g,'<span class="bk-n">[</span>').replace(/\]/g,'<span class="bk-n">]</span>')
+   .replace(/\(/g,'<span class="bk-a">(</span>').replace(/\)/g,'<span class="bk-a">)</span>')
+   .replace(/〈/g,'<span class="bk-d">〈</span>').replace(/〉/g,'<span class="bk-d">〉</span>');
+}
+$('#syntaxList').innerHTML=SYN.map((d,i)=>{
+  const n=i+1;
+  const tags=d.tags.map((t,j)=>`<span class="tag${d.key&&j===0?' key':''}">${esc(t)}</span>`).join('');
+  const units=d.u.map(u=>`<div class="unit ${u[2]}"><span class="en">${esc(u[0])}</span><span class="ko">${esc(u[1])}</span><span class="role">${esc(u[3])}</span><span class="pos">${esc(u[4])}</span></div>`).join('');
+  const note=`<div class="note"><span class="note-t">민쌤 원포인트</span><ul>${d.n.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  return `<article class="sheet scard" id="s${n}"><div class="scard-head"><span class="scard-no">${String(n).padStart(2,'0')}</span><div class="tags">${tags}</div><button class="speak" data-say="${i}" type="button" aria-label="듣기" style="margin-left:auto">🔊</button></div>
+   <div class="scard-body"><p class="stem">${bracket(d.b)}</p><p class="ko-sum">${esc(STORY[i][2])}<br><span class="muted" style="font-size:13px">구조: ${esc(d.ko)}</span></p><div class="units">${units}</div>${note}</div></article>`;
+}).join('');
+$('#syntaxList').addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b)speak(plain(STORY[b.dataset.say][1]));});
+$('#hideKo').addEventListener('click',function(){const on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);document.body.classList.toggle('hide-ko',on);this.textContent=on?'한글 줄 보이기':'한글 줄 가리기';});
+
+/* 3. 어휘 */
+$('#vocabList').innerHTML=VOCAB.map((v,i)=>{
+  const senses=v.s.map(s=>`<li><span class="pos-chip">${esc(s[0])}</span><span>${esc(s[1])}</span></li>`).join('');
+  const ex=v.ex.map(e=>`<p class="e">${e[2]?'<span class="src">BBC</span>':''}${e[0]}</p><p class="k">${esc(e[1])}</p>`).join('');
+  const x=v.x?`<ul class="ext">${v.x.map(t=>`<li>${t}</li>`).join('')}</ul>`:'';
+  const c=v.c?`<div class="cmp">${v.c.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`:'';
+  const syn=v.syn?`<p class="syn"><b>동의어</b> ${esc(v.syn)}</p>`:'';
+  return `<article class="sheet vcard${v.req?' req':''}" id="v-${v.id}"><div class="vtop"><span class="vno">${String(i+1).padStart(2,'0')}</span><h3 class="vword">${esc(v.w)}</h3><span class="vpr">[${esc(v.pr)}]</span>${v.req?'<span class="req-tag">요청</span>':''}<button class="speak" data-w="${esc(v.w)}" type="button" aria-label="${esc(v.w)} 발음">🔊</button></div>
+   <ul class="senses">${senses}</ul><div class="vex">${ex}</div>${x}${c}${syn}${v.id==='getawaywith'?'<p class="syn"><a href="#get">→ get 구동사 28개 한 번에 보기</a></p>':''}</article>`;
+}).join('');
+$('#vocabList').addEventListener('click',e=>{const b=e.target.closest('[data-w]');if(b)speak(b.dataset.w);});
+
+/* 4. get */
+$('#getList').innerHTML=GET.map(g=>`<section class="sheet ggroup"><div class="ghead"><b>${esc(g[0])}</b><span>${esc(g[1])}</span></div>`+
+  g[2].map(it=>`<div class="gitem${it[5]?' star':''}"><div class="gv">${esc(it[0])}${it[5]?'<small>기사 연결</small>':''}</div><div><p class="gm">${esc(it[1])}</p><p class="ge">${it[2]}</p><p class="gk">${esc(it[3])}</p><p class="gs"><b>≈</b>${esc(it[4])}</p></div></div>`).join('')+`</section>`).join('');
+
+/* 6. 테스트 */
+const PEN_O='<svg class="pen" viewBox="0 0 38 36"><path d="M19 4C9 3 3 10 4 19c1 9 9 14 17 13 9-1 14-8 13-16C33 8 27 4 18 5"/></svg>';
+const PEN_X='<svg class="pen" viewBox="0 0 38 36"><path d="M8 7L30 29M30 7L8 29"/></svg>';
+const MARKS=['①','②','③','④'];
+let state={};
+try{state=JSON.parse(localStorage.getItem('coca-reading:sleep-genes')||'{}')}catch(e){state={}}
+function save(){try{localStorage.setItem('coca-reading:sleep-genes',JSON.stringify(state))}catch(e){}}
+function renderTest(){
+  $('#testList').innerHTML=TEST.map((q,i)=>`<article class="sheet qcard" id="q${i}"><div class="qhead"><span class="qno"><span>${i+1}</span></span><span class="qtype">${esc(q[0])}</span></div>
+   <p class="qstem">${q[1]}</p><div class="opts">${q[2].map((o,j)=>`<button class="opt" type="button" data-q="${i}" data-o="${j}"><span class="om">${MARKS[j]}</span><span class="ot">${esc(o)}</span></button>`).join('')}</div>
+   <div class="expl" id="ex${i}"></div></article>`).join('');
+  Object.keys(state).forEach(k=>mark(+k,state[k],false));
+  tally();
+}
+function mark(i,pick,fresh){
+  const q=TEST[i],card=$('#q'+i),ok=pick===q[3];
+  card.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q[3]){b.classList.add('ans');b.querySelector('.om').insertAdjacentHTML('beforeend',PEN_O);}if(j===pick&&!ok){b.classList.add('bad');b.querySelector('.om').insertAdjacentHTML('beforeend',PEN_X);}});
+  card.querySelector('.qno').insertAdjacentHTML('beforeend',ok?PEN_O:PEN_X);
+  const ex=$('#ex'+i);ex.className='expl show'+(ok?'':' bad');ex.innerHTML=`<strong>${ok?'정답!':'오답 — 정답은 '+MARKS[q[3]]}</strong> ${q[4]}`;
+  if(!fresh)card.querySelectorAll('.pen path').forEach(p=>p.style.animation='none');
+}
+function tally(){const k=Object.keys(state);$('#done').textContent=k.length;$('#got').textContent=k.filter(i=>state[i]===TEST[i][3]).length;$('#tot').textContent=TEST.length;}
+$('#testList').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||b.disabled)return;const i=+b.dataset.q,o=+b.dataset.o;state[i]=o;save();mark(i,o,true);tally();});
+$('#resetTest').addEventListener('click',()=>{state={};save();renderTest();});
+renderTest();
+
+/* 설정 · 탭 */
+const root=document.documentElement;
+function prefs(){try{return JSON.parse(localStorage.getItem('coca-reading:prefs')||'{}')}catch(e){return{}}}
+function setPref(k,v){const p=prefs();p[k]=v;try{localStorage.setItem('coca-reading:prefs',JSON.stringify(p))}catch(e){}}
+$('#themeBtn').addEventListener('click',()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const t=dark?'light':'dark';root.dataset.theme=t;setPref('theme',t);});
+$('#textBtn').addEventListener('click',()=>{const order=['','large','xlarge'];const t=order[(order.indexOf(root.dataset.text||'')+1)%3];if(t)root.dataset.text=t;else delete root.dataset.text;setPref('text',t);});
+const tabs=[...document.querySelectorAll('.tabs a')];
+const secs=tabs.map(a=>document.querySelector(a.getAttribute('href')));
+function spy(){let cur=0;const y=window.scrollY+140;secs.forEach((s,i)=>{if(s.offsetTop<=y)cur=i});tabs.forEach((a,i)=>a.classList.toggle('on',i===cur&&window.scrollY>200));}
+addEventListener('scroll',spy,{passive:true});spy();
+if('speechSynthesis' in window){speechSynthesis.getVoices();}
+</script>
+</body>
+</html>
