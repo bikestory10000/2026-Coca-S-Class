@@ -589,6 +589,12 @@ html.anim .rv.in{opacity:1;transform:none}
   .scard{break-inside:auto}
   .scard-head,.scard .stem,.scard .ko-sum{break-after:avoid}
   .scard .units{break-inside:avoid}
+  #dict,#practice,#test,#answerKey{display:none!important}
+  .route li:nth-child(n+6){display:none!important}
+  .kicker .chip:nth-child(n+4){display:none!important}
+  body.long-pdf{padding:0 12mm 12mm!important}
+  body.long-pdf .sec{break-before:auto!important;margin-top:12mm}
+  body.long-pdf .hero{min-height:0!important;padding:12mm 0 2mm!important}
 }
 </style>
 </head>
@@ -650,7 +656,7 @@ html.anim .rv.in{opacity:1;transform:none}
       <li><a href="#test" data-r="test"><b>8</b><span>확인 테스트</span><small>12문항 채점</small></a></li>
     </ol>
     <div class="progress"><span>학습 진행</span><span class="bar"><i id="progBar"></i></span><span id="progTxt">0 / 8 단계</span></div>
-    <div class="dl-bar"><span class="dl-t">🖨 인쇄용</span><a class="btn dark" href="sleep-genes-student.pdf" download>PDF 학생용</a><a class="btn" href="sleep-genes-teacher.pdf" download>PDF 교사용 · 정답 포함</a><button class="btn" id="printBtn" type="button">바로 인쇄</button></div>
+    <div class="dl-bar"><span class="dl-t">🖨 PDF</span><a class="btn dark" href="sleep-genes.pdf" download>PDF 받기 (원문·구문·어휘·구동사·배경지식)</a><button class="btn" id="printBtn" type="button">바로 인쇄</button></div>
   </section>
 
   <!-- 1 -->
