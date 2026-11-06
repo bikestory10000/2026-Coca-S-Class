@@ -273,7 +273,7 @@ svg.fig{display:block;width:100%;height:auto;margin:6px 0 10px}
 
 
 /* ===== v2 확장 ===== */
-.route{grid-template-columns:repeat(4,1fr)}
+.route{grid-template-columns:repeat(5,1fr)}
 .route a{position:relative}
 .route a.done{border-color:color-mix(in srgb,var(--pen) 40%,var(--rule))}
 .route a.done::after{content:"✓ 완료";position:absolute;right:10px;top:11px;font:600 11.5px var(--sans);color:var(--pen)}
@@ -322,7 +322,7 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
 .signal{display:inline-block;margin-right:6px;padding:0 6px;font:600 11.5px/1.7 var(--sans);color:var(--focus);border:1px solid currentColor;border-radius:3px;vertical-align:1px}
 .quiz.only-wrong .qcard:not(.wrong){display:none}
 .quiz.only-wrong:not(:has(.wrong))::after{content:"틀린 문제가 없어요 👏";display:block;padding:24px;text-align:center;color:var(--pencil);background:var(--paper);border:1px dashed var(--rule);border-radius:var(--r)}
-@media(max-width:860px){.route{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.route{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.route{grid-template-columns:repeat(2,1fr)}.chunks,.passage{padding:16px}.drow,.dbar{padding-left:16px;padding-right:16px}.tbl-wrap{padding:4px 10px}}
 /* ===== v3: 일러스트 · 애니메이션 ===== */
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(220px,.9fr);gap:28px;align-items:center}
@@ -615,9 +615,6 @@ html.anim .rv.in{opacity:1;transform:none}
       <a href="#vocab"><span class="n">3</span>어휘</a>
       <a href="#get"><span class="n">4</span>get 구동사</a>
       <a href="#bg"><span class="n">5</span>배경지식</a>
-      <a href="#dict"><span class="n">6</span>받아쓰기</a>
-      <a href="#practice"><span class="n">7</span>편입 실전</a>
-      <a href="#test"><span class="n">8</span>확인 테스트</a>
     </div>
   </nav>
 </header>
@@ -625,10 +622,10 @@ html.anim .rv.in{opacity:1;transform:none}
 <main>
   <section class="hero">
     <div class="hero-grid"><div class="hero-text">
-    <div class="kicker"><span class="chip red">BBC · 과학</span><span class="chip">수면 · 유전학</span><span class="chip">15문장</span><span class="chip">어휘 18 · 구동사 28</span><span class="chip">받아쓰기 · 실전 18문항</span></div>
+    <div class="kicker"><span class="chip red">BBC · 과학</span><span class="chip">수면 · 유전학</span><span class="chip">15문장</span><span class="chip">어휘 18 · 구동사 28</span></div>
     <h1>The people who only need four hours' sleep</h1>
     <p class="ko-title">4시간만 자도 멀쩡한 사람들 — 잠의 양은 유전자가 정한다?</p>
-    <p class="lead">새벽 4시 반이면 눈이 번쩍 떠지는 면역학 교수 이야기로 시작하는 BBC 기사입니다. 원문을 먼저 읽고 구문분석 → 어휘 → get 구동사 → 배경지식 순서로 공부한 다음, 받아쓰기와 편입 실전 문제로 손에 익히고 마지막 테스트로 확인하세요. 단계를 마칠 때마다 <b>이 단계 완료</b>를 누르면 진행률이 저장됩니다.</p>
+    <p class="lead">새벽 4시 반이면 눈이 번쩍 떠지는 면역학 교수 이야기로 시작하는 BBC 기사입니다. 원문을 먼저 읽고 구문분석 → 어휘 → get 구동사 → 배경지식 순서로 공부하세요. 단계를 마칠 때마다 <b>이 단계 완료</b>를 누르면 진행률이 저장됩니다.</p>
     <div class="print-only name-box">반 ________ &nbsp;&nbsp; 이름 ______________ &nbsp;&nbsp; 날짜 ____ / ____</div>
     </div>
     <figure class="hero-fig play"><svg class="clock" viewBox="0 0 300 300" role="img" aria-label="24시간 시계: 버나드는 22시부터 4시 30분까지 6시간 반, 보통 성인은 7~9시간 잔다">
@@ -651,11 +648,8 @@ html.anim .rv.in{opacity:1;transform:none}
       <li><a href="#vocab" data-r="vocab"><b>3</b><span>어휘</span><small>요청 7 + 11 · 뜻 가리기</small></a></li>
       <li><a href="#get" data-r="get"><b>4</b><span>get 구동사</span><small>전치사 감각 28개</small></a></li>
       <li><a href="#bg" data-r="bg"><b>5</b><span>배경지식</span><small>수면 유전학 · 수면 빚</small></a></li>
-      <li><a href="#dict" data-r="dict"><b>6</b><span>받아쓰기</span><small>듣고 빈칸 채우기 11문장</small></a></li>
-      <li><a href="#practice" data-r="practice"><b>7</b><span>편입 실전</span><small>논리완성 10 · 독해 8</small></a></li>
-      <li><a href="#test" data-r="test"><b>8</b><span>확인 테스트</span><small>12문항 채점</small></a></li>
     </ol>
-    <div class="progress"><span>학습 진행</span><span class="bar"><i id="progBar"></i></span><span id="progTxt">0 / 8 단계</span></div>
+    <div class="progress"><span>학습 진행</span><span class="bar"><i id="progBar"></i></span><span id="progTxt">0 / 5 단계</span></div>
     <div class="dl-bar"><span class="dl-t">🖨 PDF</span><a class="btn dark" href="sleep-genes.pdf" download>PDF 받기 (원문·구문·어휘·구동사·배경지식)</a><button class="btn" id="printBtn" type="button">바로 인쇄</button></div>
   </section>
 
@@ -863,7 +857,7 @@ html.anim .rv.in{opacity:1;transform:none}
               <li>2주 뒤에는 <b>최대 이틀 밤을 꼬박 새운 것</b>과 맞먹는 인지 손상</li>
               <li>그런데 스스로 느끼는 졸림은 처음 며칠만 오르고 그 뒤로 <b>거의 그대로</b></li>
             </ul>
-            <p>→ 몸은 계속 망가지는데 본인은 "적응했다"고 느낍니다. 진짜 단시간 수면자(FNSS)와의 결정적 차이는 <b>애초에 빚을 지지 않는다</b>는 점입니다. 이 내용으로 쓴 확장 지문이 7번 편입 실전에 있어요.</p>
+            <p>→ 몸은 계속 망가지는데 본인은 "적응했다"고 느낍니다. 진짜 단시간 수면자(FNSS)와의 결정적 차이는 <b>애초에 빚을 지지 않는다</b>는 점입니다.</p>
           </div>
           <div>
             <svg class="fig" viewBox="0 0 420 220" role="img" aria-label="수면 제한 14일 동안 실제 수행 능력 손상은 계속 늘지만 주관적 졸림은 평평해진다">
@@ -917,55 +911,6 @@ html.anim .rv.in{opacity:1;transform:none}
     </div>
   </section>
 
-  <!-- 6 -->
-  <section class="sec" id="dict">
-    <div class="sec-head">
-      <h2><span class="num">6</span>받아쓰기<small>듣고 빈칸 채우기 · 철자까지</small></h2>
-      <div class="sec-tools"><button class="btn done-btn" type="button" data-done="dict" aria-pressed="false">이 단계 완료</button></div>
-    </div>
-    <p class="hint">🔊로 문장을 듣고 빈칸에 들어갈 단어를 쓰세요. 회색 글씨는 힌트예요. 다 쓰면 <b>채점하기</b>. 대소문자는 구분하지 않고, energised/energized처럼 영국·미국 철자는 둘 다 정답으로 인정합니다.</p>
-    <div class="sheet dict"><div id="dictList"></div>
-      <div class="dbar"><button class="btn" id="dictCheck" type="button" style="background:var(--ink);color:var(--paper);border-color:var(--ink)">채점하기</button><button class="btn" id="dictShow" type="button">정답 보기</button><button class="btn" id="dictReset" type="button">다시 하기</button><b id="dictScore"></b></div>
-    </div>
-  </section>
-
-  <!-- 7 -->
-  <section class="sec" id="practice">
-    <div class="sec-head">
-      <h2><span class="num">7</span>편입 실전<small>이 글의 어휘·주제로 만든 시험형 문제</small></h2>
-      <div class="sec-tools"><button class="btn" data-wrong="practice" type="button" aria-pressed="false">틀린 문제만</button><button class="btn" id="resetPractice" type="button">다시 풀기</button><button class="btn done-btn" type="button" data-done="practice" aria-pressed="false">이 단계 완료</button></div>
-    </div>
-    <div class="sheet score-bar"><span>맞힌 문항</span><b class="got" id="pGot">0</b><span class="muted">/ <span id="pTot">18</span> · 푼 문항 <span id="pDone">0</span></span></div>
-
-    <h3 class="subhead">A. 논리완성 10<small>새 문장에 기사 속 어휘 투입 · 해설에 단서 시그널 표시</small></h3>
-    <div class="quiz" id="logicList"></div>
-
-    <h3 class="subhead">B. 독해 — BBC 원문<small>5문항</small></h3>
-    <div class="quiz" id="readList"></div>
-
-    <h3 class="subhead">C. 독해 — 확장 지문<small>배경지식 07(수면 빚)과 연결 · 3문항</small></h3>
-    <article class="sheet passage">
-      <h3>Can you train yourself to sleep less?</h3>
-      <p class="src-note">민쌤 자체 제작 연습 지문 (Van Dongen 외 2003 연구 내용 바탕)</p>
-      <p class="body">Many ambitious people believe that sleep is a habit that can be trimmed through discipline, much like a diet. If natural short sleepers can thrive on four hours, the reasoning goes, the rest of us should be able to train ourselves to do the same. The science, however, offers little support for this view. When ordinary sleepers restrict their sleep night after night, they accumulate what researchers call "sleep debt." Strikingly, after the first few days they often report feeling <span class="gap">(A)</span>, even as objective tests reveal that their attention and reaction times continue to deteriorate. In other words, the sleep-deprived brain becomes a poor judge of its own impairment. Natural short sleepers differ in kind, not merely in degree: their genes appear to make sleep more efficient, so they do not run up a debt in the first place. For most of us, then, sleeping less is not a skill to be mastered but a cost to be <span class="gap">(B)</span>.</p>
-    </article>
-    <div class="quiz" id="extList"></div>
-  </section>
-
-  <!-- 8 -->
-  <section class="sec" id="test">
-    <div class="sec-head">
-      <h2><span class="num">8</span>확인 테스트<small>어휘 · 구문 · 구동사 · 배경</small></h2>
-      <div class="sec-tools"><button class="btn" data-wrong="test" type="button" aria-pressed="false">틀린 문제만</button><button class="btn" id="resetTest" type="button">다시 풀기</button><button class="btn done-btn" type="button" data-done="test" aria-pressed="false">이 단계 완료</button></div>
-    </div>
-    <div class="sheet score-bar"><span>맞힌 문항</span><b class="got" id="got">0</b><span class="muted">/ <span id="tot">12</span> · 푼 문항 <span id="done">0</span></span></div>
-    <div class="quiz" id="testList"></div>
-  </section>
-
-  <section class="sec answer-key" id="answerKey">
-    <div class="sec-head"><h2><span class="num">✓</span>정답 및 해설<small>받아쓰기 · 편입 실전 · 확인 테스트</small></h2></div>
-    <div class="key-grid" id="keyBody"></div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -1214,21 +1159,6 @@ const GET=[
   ["get into","들어가다; (학교에) 합격하다; 빠져들다","She <b>got into</b> her dream university.","그녀는 꿈의 대학에 합격했다.","be admitted to, enter"]]]
 ];
 
-const TEST=[
- ["어휘 · 동의어","Friends <u>gawk</u> at Bernard's ability to do so much on so little sleep.",["gape","gloat","glance","grumble"],0,"gawk = 놀라 넋을 놓고 쳐다보다 ≈ <b>gape</b>(입을 벌리고 보다). gloat 고소해하다, glance 흘끗 보다, grumble 투덜대다."],
- ["어휘 · 동의어","Why people's sleep needs differ has been a <u>long-standing</u> mystery.",["age-old","short-lived","newfound","trivial"],0,"long-standing = 오래된 ≈ <b>age-old</b>. short-lived 단명한, newfound 새로 발견한, trivial 사소한."],
- ["어휘 · 반의어","Bernard usually still feels <u>energised</u> the next day. <span class='ko'>— 반대 뜻은?</span>",["invigorated","enervated","galvanized","revitalized"],1,"energise의 반대 = <b>enervate</b>(기력을 빼앗다). 생김새가 비슷해 '활력을 주다'로 착각하기 쉬운 편입 단골 함정."],
- ["어휘 · 동의어","Scientists have pinpointed <u>a wealth of</u> ways in which genetics play a role.",["a dearth of","a plethora of","a modicum of","a lack of"],1,"a wealth of = 아주 많은 ≈ <b>a plethora of</b>. dearth·lack 부족, modicum 약간."],
- ["구문 · 수일치","Why there is such a wide variation in how much sleep people need ______ a long-standing mystery.",["have been","has been","having been","to be"],1,"주어가 <b>명사절</b>(Why ~ need) → 단수 취급 → <b>has been</b>. 문장에 다른 동사가 없으므로 having been·to be는 불가."],
- ["구문 · 간접의문문","I wonder ______ in how much sleep people need.",["why is there such a wide variation","why there is such a wide variation","why such a wide variation there is","there is why such a wide variation"],1,"간접의문문 어순 = <b>의문사 + 주어 + 동사</b> → why there is ~. there is 구문은 there + be + 주어 순서."],
- ["구문 · 관계사","Scientists have found many ways ______ genetics play a role.",["which","how","in which","what"],2,"뒤가 genetics(S) play(V) a role(O)로 <b>완전한 문장</b> → 전치사 + 관계대명사 <b>in which</b>. the way(s) how는 함께 쓰지 않음."],
- ["구문 · 분사","In 'the rare mutations <u>carried</u> by people like Bernard', carried의 역할은?",["과거시제 동사","명사를 뒤에서 꾸미는 과거분사","수동태의 동사","분사구문"],1,"mutations를 뒤에서 꾸미는 <b>과거분사</b>(돌연변이가 사람들에 의해 '지니어지는' 수동 관계). 문장의 동사는 here's의 's."],
- ["구문 · 준동사","These findings could be used ______ those who can't get enough from the usual consequences.",["to help protecting","to help protect","helping protecting","to helping protect"],1,"be used <b>to V</b>(~하는 데 사용되다) + help + <b>동사원형</b> → to help protect. be used to V-ing(~에 익숙하다)와 구별."],
- ["get 구동사","Few people can ______ four hours' sleep a night without feeling tired.",["get by on","get over","get across","get back at"],0,"<b>get by on</b> = (적은 것으로) 그럭저럭 버티다. get over 극복하다, get across 전달하다, get back at 복수하다."],
- ["get 구동사","He cheated on the test and ______ it — nobody noticed.",["got along with","got away with","got down to","got rid of"],1,"<b>get away with</b> = 나쁜 짓을 하고도 무사하다. 기사에서는 '아주 적게 자고도 대가 없이 지낸다'로 쓰였어요."],
- ["배경지식","버나드의 아버지와 형제도 잠이 적다는 사실과 가장 관련 깊은 설명은?",["드문 돌연변이 하나가 우성으로 유전된다","흔한 변이 수백 개가 아주 작은 효과를 낸다","어릴 때 형성된 수면 습관이 대물림된다","가족이 같은 시간대에 일하기 때문이다"],0,"가족 단위로 나타나는 자연적 단시간 수면(<b>FNSS</b>)은 DEC2 같은 <b>희귀 돌연변이 하나</b>가 상염색체 <b>우성</b>으로 유전되는 형태로 연구돼 왔습니다. 흔한 변이 수백 개는 일반인 사이의 작은 개인차를 설명합니다."]
-];
-
 /* ---------- 렌더 ---------- */
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1303,44 +1233,6 @@ $('#vocabList').addEventListener('click',e=>{const b=e.target.closest('[data-w]'
 $('#getList').innerHTML=GET.map(g=>`<section class="sheet ggroup"><div class="ghead"><b>${esc(g[0])}</b><span>${esc(g[1])}</span></div>`+
   g[2].map(it=>`<div class="gitem${it[5]?' star':''}"><div class="gv">${esc(it[0])}${it[5]?'<small>기사 연결</small>':''}</div><div><p class="gm">${esc(it[1])}</p><p class="ge">${it[2]}</p><p class="gk">${esc(it[3])}</p><p class="gs"><b>≈</b>${esc(it[4])}</p></div></div>`).join('')+`</section>`).join('');
 
-/* ---------- 실전 문제 데이터 ---------- */
-const LOGIC=[
- ["논리완성","Although the researchers spent years trying to ______ the exact cause of the disorder, its origin remained elusive.",["pinpoint","obscure","aggravate","disseminate"],0,"<span class='signal'>역접</span><b>Although</b> ~, its origin remained <b>elusive</b>(찾기 어려운). '몇 년이나 원인을 ~하려 했지만 여전히 알 수 없었다' → <b>pinpoint</b>(정확히 찾아내다). obscure 흐리게 하다, aggravate 악화시키다, disseminate 퍼뜨리다."],
- ["논리완성","Far from being ______, our need for sleep varies considerably from person to person and even changes over a lifetime.",["immutable","variable","negligible","conspicuous"],0,"<span class='signal'>부정·대조</span><b>Far from</b> ~ = 전혀 ~가 아닌. 뒤에서 varies, changes라고 했으니 빈칸은 그 반대 → <b>immutable</b>(불변의). variable은 뒤 내용과 같은 뜻이라 함정."],
- ["논리완성","Weeks of sleep deprivation left the night-shift workers so ______ that they could barely finish even simple tasks.",["invigorated","enervated","meticulous","complacent"],1,"<span class='signal'>인과</span><b>so ~ that</b> they could barely finish → 결과가 '간신히 해냈다'이므로 원인은 기운이 빠진 상태 → <b>enervated</b>(기력이 빠진). invigorated는 정반대 함정."],
- ["논리완성","Natural short sleepers are not merely people who ______ their fatigue with coffee; they genuinely require less rest.",["mask","relish","exacerbate","document"],0,"<span class='signal'>대조</span><b>not merely</b> A; (but) genuinely B. '진짜로 덜 필요하다'와 대비되는 A = 피로를 커피로 '감추는' 사람 → <b>mask</b>. relish 즐기다, exacerbate 악화시키다."],
- ["논리완성","The volcano had been ______ for centuries, so its sudden eruption caught nearby villagers completely off guard.",["dormant","active","volatile","notorious"],0,"<span class='signal'>인과</span><b>so</b> caught off guard(허를 찔렸다) → 오랫동안 조용했기 때문 → <b>dormant</b>(휴면 중인) = slumbering. 어휘 카드 slumber 참고."],
- ["논리완성","The new findings were at ______ with the popular claim that every adult needs exactly eight hours of sleep.",["variance","ease","random","large"],0,"<span class='signal'>관용</span><b>at variance with</b> = ~와 상충하는(= inconsistent with). 어휘 카드 variant의 파생어. at ease 편안한, at random 무작위로, at large 전반적인; 잡히지 않은."],
- ["논리완성","What once seemed a(n) ______ detail — a single letter changed in a gene — turned out to have far-reaching effects on how long people sleep.",["inconsequential","momentous","deliberate","lucid"],0,"<span class='signal'>대조</span><b>once seemed</b> ~ / <b>turned out</b> far-reaching. '처음엔 ~해 보였지만 알고 보니 영향이 컸다' → <b>inconsequential</b>(사소한). momentous(중대한)는 뒤와 같은 뜻이라 함정."],
- ["논리완성","Rather than suffering from a ______ of evidence, sleep researchers now have a wealth of genetic data to work with.",["dearth","plethora","synthesis","surfeit"],0,"<span class='signal'>대조</span><b>Rather than</b> A, now B(a wealth of). A는 B의 반대 → <b>dearth</b>(부족). plethora·surfeit는 '과다'로 a wealth of와 같은 쪽."],
- ["논리완성","His ______ habit of staying up until dawn was so deeply ingrained that no alarm clock could change it.",["inveterate","fleeting","sporadic","nascent"],0,"<span class='signal'>재진술</span><b>so deeply ingrained</b>(깊이 배어 있는)가 빈칸을 다시 설명 → <b>inveterate</b>(뿌리 깊은, 상습적인) ≈ long-standing. fleeting 순간적인, sporadic 산발적인, nascent 초기의."],
- ["논리완성","The lecture was so monotonous that several students grew ______ and struggled to keep their eyes open.",["somnolent","vigilant","boisterous","indignant"],0,"<span class='signal'>인과</span><b>so monotonous that</b> ~ struggled to keep their eyes open → <b>somnolent</b>(졸린). vigilant 경계하는, boisterous 떠들썩한, indignant 분개한."]
-];
-const READQ=[
- ["주제","BBC 원문의 주제로 가장 적절한 것은?",["The genetic basis of differences in how much sleep people need","The health risks of sleeping fewer than seven hours a night","How ambitious people can train themselves to sleep less","Why university professors tend to work longer hours"],0,"일화(버나드) → 일반 기준(7–9시간) → 문제 제기(왜 다를까) → 답(유전학)으로 이어지는 글. 핵심은 <b>수면 필요량 차이의 유전적 원인</b>. ②는 마지막 문장의 일부, ③은 글과 반대 방향."],
- ["내용 일치","글의 내용과 일치하는 것은?",["Bernard sometimes sleeps only about five hours but usually still feels energetic the next day.","Bernard's short sleep is considered unusual even within her own family.","The National Sleep Foundation recommends at least nine hours of sleep for adults.","Scientists have concluded that a single gene determines how much sleep everyone needs."],0,"¶2–3: 5시간만 잘 때도 있지만 다음 날 대개 활력이 넘친다 → ①. ② 가족에겐 정상, ③ 7~9시간, ④ 희귀 돌연변이부터 흔한 변이 '수백 개'까지라고 했으므로 틀림."],
- ["문맥상 의미","\"… and <u>clock</u> 1.5 hours of work before 08:00\"에서 clock의 의미로 가장 적절한 것은?",["record or put in","measure the speed of","notice suddenly","hit hard"],0,"앞 문단의 log(기록하다)를 바꿔 말한 것. '1시간 반의 일을 해 넣다, 기록하다' → <b>record / put in</b>. ② 속도를 재다(The car was clocked at …), ③ 알아채다(구어)는 다른 뜻."],
- ["이어질 내용","글 바로 다음에 이어질 내용으로 가장 적절한 것은?",["희귀 돌연변이에서 흔한 변이까지, 유전이 수면에 영향을 주는 방식에 대한 설명","버나드의 운동 루틴과 아침 식단에 대한 자세한 소개","미국 국립수면재단 권고의 문제점에 대한 비판","잠을 줄이는 훈련 방법에 대한 단계별 안내"],0,"<b>From</b> the rare mutations … <b>to</b> hundreds of … common variants, <b>here's why</b> ~ → '지금부터 그 이유를 보여 주겠다'는 예고. 범위(from A to B)가 곧 다음 내용의 목차."],
- ["추론","버나드의 사례에서 추론할 수 있는 것으로 가장 적절한 것은?",["The amount of sleep a person needs may be largely inherited rather than a matter of willpower.","People who exercise in the morning need less sleep.","Sleeping five hours is enough for most adults.","Immunologists are especially likely to be short sleepers."],0,"아버지·형제도 똑같다(¶3) + genetics play a role(¶5) → 수면 필요량은 <b>의지보다 유전</b>의 영향이 크다. ② 운동과의 인과는 언급 없음, ③ 대부분은 7~9시간 필요, ④ 직업과는 무관."]
-];
-const EXTQ=[
- ["빈칸 (A)","빈칸 (A)에 들어갈 말로 가장 적절한 것은?",["largely fine","utterly exhausted","increasingly anxious","unable to stay awake"],0,"<span class='signal'>역접</span><b>even as</b> objective tests reveal … continue to deteriorate(객관적 수행은 계속 나빠지는데도) + 다음 문장 '뇌가 자기 손상을 잘 판단하지 못한다' → 본인은 <b>괜찮다고 느낀다</b>. 실제 연구에서도 주관적 졸림은 며칠 뒤 거의 늘지 않았습니다."],
- ["빈칸 (B)","빈칸 (B)에 들어갈 말로 가장 적절한 것은?",["paid","ignored","celebrated","inherited"],0,"<span class='signal'>대조</span><b>not</b> a skill to be mastered <b>but</b> a cost to be ___. 앞에서 '수면 빚(debt)'이라는 비유를 썼으므로 cost와 짝을 이루는 동사 → <b>paid</b>(치러야 할 대가)."],
- ["내용 일치","지문의 내용과 일치하는 것은?",["잠을 계속 줄인 보통 사람은 스스로 느끼는 상태와 실제 수행 능력 사이에 차이가 생긴다.","자연적 단시간 수면자도 결국 수면 빚을 지게 된다.","꾸준히 훈련하면 누구나 단시간 수면자가 될 수 있다.","수면 빚은 일주일이 지나면 저절로 사라진다."],0,"① poor judge of its own impairment와 일치. ② do not run up a debt in the first place, ③ The science offers little support, ④ 언급 없음 → 모두 틀림. <b>differ in kind, not merely in degree</b>(정도가 아니라 종류가 다르다)도 꼭 외워 둘 표현."]
-];
-const DICT=[
- [0,"{{For as long as}} she can remember, Aimee Pugh Bernard hasn't needed much sleep.","기억하는 한 오래전부터 (4단어)"],
- [2,"\"I'm {{wide}} awake. I cannot stay in bed,\" she says.","완전히"],
- [3,"Sometimes Bernard, an {{immunology}} professor at the University of Colorado, can't {{fall}} asleep right away.","면역학 / 잠들다"],
- [4,"Then she'll {{log}} only five hours' {{slumber}}.","기록하다 / 잠"],
- [5,"Perhaps most surprisingly, Bernard usually still feels {{energised|energized}} the next day.","활력이 넘치는"],
- [6,"She'll walk her dog, {{sweat}} through an hour-long gym session, and {{clock}} 1.5 hours of work before 08:00.","땀 흘리다 / 기록하다"],
- [7,"Friends {{gawk}} at Bernard's ability to do so much on so {{little}} sleep.","넋 놓고 보다 / 적은"],
- [11,"Why there is such a wide {{variation}} in how much sleep people need has been a {{long-standing|longstanding}} mystery.","차이 / 오래된"],
- [12,"Yet over the last few years, scientists have {{pinpointed}} a {{wealth}} of ways in which genetics play a role.","정확히 찾아냈다 / 풍부함"],
- [13,"From the rare mutations carried by people like Bernard, to hundreds of much more common {{variants}}, here's why some people {{get away with}} very little sleep.","변이 / ~하고도 무사하다 (3단어)"],
- [14,"In the future, these findings could be used to help {{protect}} those who can't get enough from some of the usual {{consequences}}.","보호하다 / 결과"]
-];
 const CHECK=[
  [1,"for as long as + 현재완료","For as long as she can remember, … hasn't needed"],
  [2,"병렬 속 to 생략","tends to go … and (to) wake up"],
@@ -1362,81 +1254,6 @@ const CHECK=[
  [15,"protect A from B ↔ prevent A from V-ing","protect those … from consequences"]
 ];
 
-/* ---------- 공통 퀴즈 엔진 ---------- */
-const PEN_O='<svg class="pen" viewBox="0 0 38 36"><path d="M19 4C9 3 3 10 4 19c1 9 9 14 17 13 9-1 14-8 13-16C33 8 27 4 18 5"/></svg>';
-const PEN_X='<svg class="pen" viewBox="0 0 38 36"><path d="M8 7L30 29M30 7L8 29"/></svg>';
-const MARKS=['①','②','③','④'];
-function quiz(el,data,key,prefix,onChange){
-  let st={};try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-  const save=()=>{try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}};
-  function mark(i,pick,fresh){
-    const q=data[i],card=document.getElementById(prefix+i),ok=pick===q[3];
-    card.classList.add(ok?'right':'wrong');
-    card.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q[3]){b.classList.add('ans');b.querySelector('.om').insertAdjacentHTML('beforeend',PEN_O);}if(j===pick&&!ok){b.classList.add('bad');b.querySelector('.om').insertAdjacentHTML('beforeend',PEN_X);}});
-    card.querySelector('.qno').insertAdjacentHTML('beforeend',ok?PEN_O:PEN_X);
-    const ex=card.querySelector('.expl');ex.className='expl show'+(ok?'':' bad');ex.innerHTML=`<strong>${ok?'정답!':'오답 — 정답은 '+MARKS[q[3]]}</strong> ${q[4]}`;
-    if(!fresh)card.querySelectorAll('.pen path').forEach(p=>p.style.animation='none');
-  }
-  function render(){
-    el.innerHTML=data.map((q,i)=>`<article class="sheet qcard" id="${prefix}${i}"><div class="qhead"><span class="qno"><span>${i+1}</span></span><span class="qtype">${esc(q[0])}</span></div>
-     <p class="qstem">${q[1]}</p><div class="opts">${q[2].map((o,j)=>`<button class="opt" type="button" data-o="${j}"><span class="om">${MARKS[j]}</span><span class="ot">${esc(o)}</span></button>`).join('')}</div>
-     <div class="expl"></div></article>`).join('');
-    Object.keys(st).forEach(k=>{if(data[k])mark(+k,st[k],false)});
-    onChange&&onChange();
-  }
-  el.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||b.disabled)return;const i=+b.closest('.qcard').id.slice(prefix.length),o=+b.dataset.o;st[i]=o;save();mark(i,o,true);onChange&&onChange();});
-  render();
-  return{reset(){st={};save();render();},stats(){const k=Object.keys(st).filter(i=>data[i]);return{done:k.length,got:k.filter(i=>st[i]===data[i][3]).length,tot:data.length}}};
-}
-const sum=(...qs)=>qs.reduce((a,q)=>{const s=q.stats();return{done:a.done+s.done,got:a.got+s.got,tot:a.tot+s.tot}},{done:0,got:0,tot:0});
-
-/* 8. 확인 테스트 */
-const T=quiz($('#testList'),TEST,'coca-reading:sleep-genes','q',()=>{if(!window.T)return;const s=T.stats();$('#done').textContent=s.done;$('#got').textContent=s.got;$('#tot').textContent=s.tot;});
-window.T=T;{const s=T.stats();$('#done').textContent=s.done;$('#got').textContent=s.got;$('#tot').textContent=s.tot;}
-$('#resetTest').addEventListener('click',()=>T.reset());
-
-/* 7. 편입 실전 */
-let PQ=[];
-function pTally(){if(PQ.length<3)return;const s=sum(...PQ);$('#pDone').textContent=s.done;$('#pGot').textContent=s.got;$('#pTot').textContent=s.tot;}
-PQ.push(quiz($('#logicList'),LOGIC,'coca-reading:sleep-genes:logic','lg',pTally));
-PQ.push(quiz($('#readList'),READQ,'coca-reading:sleep-genes:read','rd',pTally));
-PQ.push(quiz($('#extList'),EXTQ,'coca-reading:sleep-genes:ext','ex',pTally));
-pTally();
-$('#resetPractice').addEventListener('click',()=>{PQ.forEach(q=>q.reset());pTally();});
-document.querySelectorAll('[data-wrong]').forEach(b=>b.addEventListener('click',()=>{
-  const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);
-  document.querySelectorAll('#'+b.dataset.wrong+' .quiz').forEach(q=>q.classList.toggle('only-wrong',on));
-}));
-
-/* 6. 받아쓰기 */
-const norm=t=>t.toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim();
-function renderDict(){
-  $('#dictList').innerHTML=DICT.map((d,i)=>{
-    const html=esc(d[1]).replace(/\{\{([^}]+)\}\}/g,(m,a)=>{const first=a.split('|')[0];return `<input class="blank" data-a="${a}" style="width:${Math.max(first.length*.62+1.4,3.4)}em" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸">`;});
-    return `<div class="drow"><div class="dtop"><span class="dno">${i+1}</span><span class="dhint">힌트: ${esc(d[2])}</span><button class="speak" type="button" data-ds="${d[0]}" aria-label="문장 듣기">🔊</button></div><p class="dsent">${html}</p></div>`;
-  }).join('');
-  $('#dictScore').textContent='';
-}
-function checkDict(reveal){
-  let ok=0,all=0;
-  document.querySelectorAll('#dictList .blank').forEach(inp=>{
-    all++;const alts=inp.dataset.a.split('|');
-    inp.nextElementSibling&&inp.nextElementSibling.classList.contains('fix')&&inp.nextElementSibling.remove();
-    if(reveal&&!alts.map(norm).includes(norm(inp.value)))inp.value=alts[0];
-    const good=alts.map(norm).includes(norm(inp.value));
-    inp.classList.toggle('ok',good);inp.classList.toggle('ng',!good);
-    if(good)ok++;else inp.insertAdjacentHTML('afterend',`<span class="fix">${esc(alts[0])}</span>`);
-  });
-  $('#dictScore').textContent=reveal?'':`${ok} / ${all}`;
-}
-renderDict();
-$('#dictList').addEventListener('click',e=>{const b=e.target.closest('[data-ds]');if(b)speak(plain(STORY[b.dataset.ds][1]));});
-$('#dictList').addEventListener('keydown',e=>{if(e.key!=='Enter'||!e.target.classList.contains('blank'))return;e.preventDefault();const all=[...document.querySelectorAll('#dictList .blank')];const n=all[all.indexOf(e.target)+1];if(n)n.focus();else checkDict(false);});
-$('#dictList').addEventListener('input',e=>{const t=e.target;if(t.classList.contains('blank')){t.classList.remove('ok','ng');const f=t.nextElementSibling;if(f&&f.classList.contains('fix'))f.remove();}});
-$('#dictCheck').addEventListener('click',()=>checkDict(false));
-$('#dictShow').addEventListener('click',()=>checkDict(true));
-$('#dictReset').addEventListener('click',renderDict);
-
 /* 1. 끊어 읽기 */
 let chunked=false;
 $('#chunkBtn').addEventListener('click',function(){
@@ -1455,7 +1272,7 @@ $('#vhideBtn').addEventListener('click',function(){const on=this.getAttribute('a
 $('#vocabList').addEventListener('click',e=>{if(!document.body.classList.contains('vhide')||e.target.closest('[data-w]'))return;const c=e.target.closest('.vcard');if(c)c.classList.toggle('reveal');});
 
 /* 진행률 */
-const STEPS=['read','syntax','vocab','get','bg','dict','practice','test'];
+const STEPS=['read','syntax','vocab','get','bg'];
 let DONE={};try{DONE=JSON.parse(localStorage.getItem('coca-reading:sleep-genes:done')||'{}')}catch(e){}
 function paintDone(){
   document.querySelectorAll('[data-done]').forEach(b=>{const on=!!DONE[b.dataset.done];b.setAttribute('aria-pressed',on);b.textContent=on?'✓ 완료함':'이 단계 완료';});
@@ -1484,22 +1301,8 @@ function spy(){let cur=0;const y=window.scrollY+140;secs.forEach((s,i)=>{if(s.of
 addEventListener('scroll',spy,{passive:true});spy();
 if('speechSynthesis' in window){speechSynthesis.getVoices();}
 
-/* ---------- v3: 정답 부록 ---------- */
-(function(){
-  const strip=h=>h.replace(/<span class='signal'>([^<]*)<\/span>/g,'[$1] ');
-  const ol=(arr,fn)=>'<ol>'+arr.map(fn).join('')+'</ol>';
-  const q=(x)=>`<li><b>${MARKS[x[3]]}</b> ${strip(x[4])}</li>`;
-  $('#keyBody').innerHTML=
-    '<h3>6. 받아쓰기</h3>'+ol(DICT,d=>`<li>${[...d[1].matchAll(/\{\{([^}]+)\}\}/g)].map(m=>esc(m[1].split('|')[0])).join(' / ')}</li>`)+
-    '<h3>7-A. 논리완성</h3>'+ol(LOGIC,q)+
-    '<h3>7-B. 독해 — BBC 원문</h3>'+ol(READQ,q)+
-    '<h3>7-C. 독해 — 확장 지문</h3>'+ol(EXTQ,q)+
-    '<h3>8. 확인 테스트</h3>'+ol(TEST,q);
-})();
-
 /* ---------- v3: 인쇄 ---------- */
-$('#printBtn').addEventListener('click',()=>{document.body.classList.add('print-student');window.print();});
-addEventListener('afterprint',()=>document.body.classList.remove('print-student'));
+$('#printBtn').addEventListener('click',()=>window.print());
 
 /* ---------- v3: 등장 애니메이션 ---------- */
 (function(){
@@ -1512,7 +1315,7 @@ addEventListener('afterprint',()=>document.body.classList.remove('print-student'
 
 /* ---------- v3: 모바일 하단 이동 바 ---------- */
 (function(){
-  const names=['원문','구문분석','어휘','get 구동사','배경지식','받아쓰기','편입 실전','확인 테스트'];
+  const names=['원문','구문분석','어휘','get 구동사','배경지식'];
   const dock=document.createElement('nav');dock.className='dock';dock.setAttribute('aria-label','단계 이동');
   dock.innerHTML='<button type="button" data-d="-1" aria-label="이전 단계">◀</button><div class="cur"></div><button type="button" data-d="1" aria-label="다음 단계">▶</button><button type="button" data-d="top" aria-label="맨 위로">↑</button>';
   document.body.appendChild(dock);
