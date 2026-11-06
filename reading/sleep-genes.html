@@ -324,6 +324,227 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
 .quiz.only-wrong:not(:has(.wrong))::after{content:"틀린 문제가 없어요 👏";display:block;padding:24px;text-align:center;color:var(--pencil);background:var(--paper);border:1px dashed var(--rule);border-radius:var(--r)}
 @media(max-width:860px){.route{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:560px){.route{grid-template-columns:repeat(2,1fr)}.chunks,.passage{padding:16px}.drow,.dbar{padding-left:16px;padding-right:16px}.tbl-wrap{padding:4px 10px}}
+/* ===== v3: 일러스트 · 애니메이션 ===== */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(220px,.9fr);gap:28px;align-items:center}
+.hero-fig{margin:0;text-align:center}
+.hero-fig svg{width:100%;max-width:300px;height:auto}
+.hero-fig figcaption{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:4px;font-size:12.5px;color:var(--ink-2)}
+.hero-fig figcaption i{display:inline-block;width:12px;height:5px;border-radius:3px;margin-right:5px;vertical-align:2px}
+.fig-card{margin:4px 0 18px 34px;padding:14px 16px 10px;border:1px dashed var(--rule);border-radius:var(--r);background:var(--paper-2)}
+.fig-card svg{display:block;width:100%;height:auto}
+.fig-card svg text{font-family:var(--sans)}
+.fig-card figcaption{margin-top:6px;font-size:12.5px;color:var(--pencil)}
+.vic{align-self:center;margin-left:auto;width:38px;height:38px;color:var(--pen);flex:none}
+.vic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.vic+.speak{margin-left:6px!important}
+svg .pop,svg .bar,svg .blink,svg .nudge,svg .zz,svg .tick,svg .escape,svg .walker,svg .moon,svg .sun,svg .mut{transform-box:fill-box;transform-origin:center}
+.arc{animation:draw 1.6s cubic-bezier(.4,0,.2,1) both}
+.hand{transform-box:view-box;transform-origin:150px 150px;transform:rotate(67.5deg);animation:hand 2.6s cubic-bezier(.4,0,.2,1) .2s both}
+.moon{animation:pulse 3s ease-in-out infinite}
+.sun{animation:spin 12s linear infinite}
+.pop{animation:pop .5s cubic-bezier(.3,1.4,.6,1) both}
+.bar{transform-origin:left center!important;animation:grow 1s cubic-bezier(.4,0,.2,1) both}
+.fadein{animation:fadein .6s ease both}
+.walker{animation:walk 6s cubic-bezier(.45,0,.55,1) infinite}
+.mut{animation:pulse 1.6s ease-in-out infinite}
+.blink{animation:blink 4.5s ease-in-out infinite}
+.zz{animation:zz 2.4s ease-out infinite}
+.nudge,.escape{animation:nudge 1.8s ease-in-out infinite}
+.escape{animation-name:escape;animation-duration:2.6s}
+.tick{stroke-dasharray:14;animation:draw2 1.2s ease .6s both}
+@keyframes draw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+@keyframes draw2{from{stroke-dashoffset:14}to{stroke-dashoffset:0}}
+@keyframes hand{from{transform:rotate(-30deg)}to{transform:rotate(67.5deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes walk{0%{transform:translateX(0)}80%,100%{transform:translateX(548px)}}
+@keyframes blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes zz{0%{transform:translate(0,4px);opacity:0}30%{opacity:1}100%{transform:translate(4px,-8px);opacity:0}}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@keyframes escape{0%{transform:translateX(-30px);opacity:0}20%{opacity:1}70%,100%{transform:translateX(0);opacity:1}}
+html.anim .play:not(.in) *,html.anim .play:not(.in){animation-play-state:paused!important}
+html.anim .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+html.anim .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.anim .rv{opacity:1;transform:none;transition:none}*,*::before{animation:none!important}}
+.dl-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 0;padding:12px 14px;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r)}
+.dl-bar .dl-t{font-size:13.5px;font-weight:700;margin-right:4px}
+.dl-bar .btn{text-decoration:none}
+.dl-bar .btn.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tool{display:inline-flex;align-items:center;gap:5px}
+.print-only,.answer-key{display:none}
+.dock{display:none}
+
+/* ===== v3: 모바일 가독성 ===== */
+@media screen and (max-width:760px){
+  .dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;align-items:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--paper) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--rule)}
+  .dock button{flex:none;height:42px;min-width:42px;padding:0 12px;border:1px solid var(--rule);border-radius:var(--r-sm);background:var(--paper);font-size:14px;font-weight:600}
+  .dock button:disabled{opacity:.35}
+  .dock .cur{flex:1;min-width:0;text-align:center;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dock .cur b{color:var(--pen);font-family:var(--serif);margin-right:5px}
+  body{padding-bottom:70px}
+  .hero-grid{grid-template-columns:1fr;gap:10px}
+  .hero-fig svg{max-width:230px}
+}
+@media screen and (max-width:560px){
+  html{scroll-padding-top:108px}
+  body{font-size:15.5px;line-height:1.7}
+  .header-inner{height:52px}
+  .brand-name{font-size:16px}
+  .tool{height:36px;padding:0 10px}
+  .tool .lbl{display:none}
+  .tool .ic{font-size:15px}
+  .tabs a{padding:10px 10px 9px}
+  .hero{padding-top:20px}
+  .hero h1{font-size:28px;line-height:1.2}
+  .hero .ko-title{font-size:17px}
+  .hero .lead{font-size:15.5px;line-height:1.75}
+  .route b{font-size:20px}
+  .route span{font-size:14px}
+  .dl-bar .btn{flex:1 1 auto;justify-content:center;min-height:42px}
+  .sec{padding-top:38px}
+  .sec-head{flex-direction:column;align-items:stretch;gap:10px}
+  .sec-head h2{flex-wrap:wrap;font-size:21px;row-gap:2px}
+  .sec-head h2 small{flex-basis:100%;font-size:13.5px}
+  .sec-tools{flex-wrap:nowrap;overflow-x:auto;margin:0 -12px;padding:0 12px 2px;scrollbar-width:none}
+  .sec-tools::-webkit-scrollbar{display:none}
+  .sec-tools .btn{flex:none;min-height:42px;font-size:14px}
+  .hint{font-size:14px;line-height:1.65}
+  .story{padding:16px 16px 12px}
+  .para{padding:26px 0 16px}
+  .para-no{top:2px;font-size:14px}
+  .sent{font-size:calc(18px*var(--read));line-height:1.95}
+  .ko-line{font-size:calc(15.5px*var(--read));line-height:1.75}
+  .speak{width:34px;height:34px;font-size:14px}
+  .fig-card{margin:4px 0 16px;padding:12px 10px 8px}
+  .fig-card figcaption{font-size:13px}
+  .flow b{font-size:14px}.flow span{font-size:13px}
+  .ck .e{font-size:calc(17px*var(--read))}.ck .k{font-size:calc(13.5px*var(--read))}
+  .scard-head{padding-top:14px}
+  .scard-body{padding-bottom:16px}
+  .stem{font-size:calc(18.5px*var(--read));line-height:1.75}
+  .ko-sum{font-size:calc(15px*var(--read));line-height:1.7}
+  .units{flex-direction:column;gap:6px}
+  .unit,.unit.s,.unit.v,.unit.o,.unit.c{display:grid;grid-template-columns:1fr auto;column-gap:12px;row-gap:2px;padding:9px 12px;border:1px solid var(--rule-2);border-left:4px solid var(--r-m)}
+  .unit.s{border-left-color:var(--r-s)}.unit.v{border-left-color:var(--r-v)}.unit.o{border-left-color:var(--r-o)}.unit.c{border-left-color:var(--r-c)}
+  .unit .en{grid-column:1/-1;font-size:calc(17px*var(--read))}
+  .unit .ko{grid-column:1;font-size:calc(14.5px*var(--read))}
+  .unit .role{grid-column:2;grid-row:2;align-self:center;font-size:12.5px}
+  .unit .pos{grid-column:1/-1;font-size:12px}
+  .note{font-size:calc(15.5px*var(--read));line-height:1.8;padding:12px 14px}
+  .note ul{padding-left:16px}
+  .vcard{padding:16px}
+  .vword{font-size:calc(23px*var(--read))}
+  .senses li{font-size:calc(15.5px*var(--read))}
+  .vex .e{font-size:calc(16px*var(--read))}.vex .k{font-size:calc(14px*var(--read))}
+  .ext,.cmp{font-size:calc(14.5px*var(--read));line-height:1.75}
+  .core{padding:16px}
+  .core .big{font-size:19px}
+  .gm{font-size:calc(15.5px*var(--read))}.ge{font-size:calc(16.5px*var(--read))}.gk{font-size:calc(14px*var(--read))}.gs{font-size:13.5px}
+  .bcard p,.bcard ul{font-size:calc(15.5px*var(--read));line-height:1.8}
+  .bcard h3{font-size:17px}
+  .tl p{font-size:14.5px}
+  .tbl-wrap{padding:2px 14px}
+  .kw thead{display:none}
+  .kw,.kw tbody,.kw tr,.kw td{display:block}
+  .kw tr{padding:11px 0;border-bottom:1px solid var(--rule-2)}
+  .kw tr:last-child{border-bottom:0}
+  .kw td{border:0;padding:1px 0;white-space:normal!important}
+  .kw td:first-child{font-size:16px}
+  .kw td:last-child{font-size:14px}
+  .kw .ex{font-size:15px}
+  .qcard{padding:14px 14px 12px}
+  .qstem{font-size:calc(17.5px*var(--read));line-height:1.7}
+  .opt{min-height:46px;padding:10px 8px;gap:10px}
+  .ot{font-size:calc(16.5px*var(--read))}
+  .expl{font-size:calc(15px*var(--read));line-height:1.75}
+  .passage p.body{font-size:calc(17px*var(--read));line-height:1.95}
+  .dsent{font-size:calc(17.5px*var(--read));line-height:2.3}
+  .blank{min-height:34px;font-size:16px}
+  .dbar .btn{min-height:42px}
+  .site-footer{padding-bottom:20px}
+}
+
+/* ===== v3: 인쇄 / PDF ===== */
+@page{size:A4;margin:14mm 12mm 15mm;
+  @top-left{content:"압축보카 S 리딩 · The people who only need four hours' sleep";font:7.5pt "Pretendard Variable",sans-serif;color:#999}
+  @top-right{content:"English Lab 민쌤영어";font:7.5pt "Pretendard Variable",sans-serif;color:#999}
+  @bottom-center{content:counter(page) " / " counter(pages);font:8pt "Pretendard Variable",sans-serif;color:#888}}
+@page:first{@top-left{content:none}@top-right{content:none}}
+@media print{
+  :root,:root[data-theme="dark"]{--desk:#fff;--paper:#fff;--paper-2:#f6f7f3;--ink:#1a2233;--ink-2:#3b4556;--pencil:#5d6675;--rule:#c9cec4;--rule-2:#e2e5de;--pen:#cf2a1f;--pen-soft:#fbe9e6;--marker:#ffe56b;--hold:#8a6d1c;--hold-soft:#f7f0da;--r-s:#c4432b;--r-v:#127a8f;--r-o:#9a6b00;--r-c:#2f7d4a;--r-m:#6f7a8f;--read:.74;color-scheme:light}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
+  html{scroll-padding-top:0}
+  body{background:#fff;font-size:9.5pt;line-height:1.55;padding:0!important}
+  .site-header,.sec-tools,.speak,.progress,.dl-bar,.score-bar,.dock,#chunks,.hint,.lead,.site-footer,.kicker .chip:nth-child(n+4),.dbar,.vic+.speak{display:none!important}
+  .print-only{display:block!important}
+  .rv{opacity:1!important;transform:none!important}
+  main{max-width:none;padding:0}
+  a{text-decoration:none}
+  .sheet{border-color:#cfd3ca;box-shadow:none}
+  .hero{padding:28mm 0 0;min-height:250mm}
+  .hero h1{font-size:30pt}
+  .hero .ko-title{font-size:14pt}
+  .hero-grid{grid-template-columns:1.4fr 1fr}
+  .hero-fig svg{max-width:62mm}
+  .name-box{margin:10mm 0 0;padding:4mm 5mm;border:1px solid #bbb;border-radius:3mm;font-size:11pt;letter-spacing:.02em}
+  .toc-t{margin:10mm 0 3mm;font-size:12pt;font-weight:700}
+  .route{grid-template-columns:1fr 1fr!important;gap:2.5mm;margin:0}
+  .route a{padding:3mm 4mm;border-color:#ddd}
+  .route a.done::after{content:none}
+  .route b{font-size:15pt;display:inline;margin-right:3mm}
+  .route span{display:inline;font-size:10.5pt}
+  .route small{font-size:8.5pt}
+  .sec{padding-top:0;break-before:page}
+  .sec-head{margin-bottom:4mm;padding-bottom:2mm;border-bottom-width:1.5pt}
+  .sec-head h2{font-size:15pt}.sec-head h2 .num{font-size:20pt}
+  .subhead{margin:6mm 0 3mm;font-size:11.5pt;break-after:avoid}
+  #story{display:block!important}
+  .story{padding:5mm 6mm}
+  .sent{cursor:auto}
+  .sent.open{background:none}
+  .ko-line{display:none!important}
+  .fig-card,.scard,.vcard,.qcard,.bcard,.ggroup,.drow,.passage,.flow li,.kw tr,.gitem,.legend,.note,.unit{break-inside:avoid}
+  .flow{grid-template-columns:repeat(3,1fr)!important;gap:0}
+  .flow li{border-radius:0!important;margin:0 0 -1px -1px!important}
+  .tbl-wrap{overflow:visible}
+  .scard{margin-bottom:3mm}
+  .scard-head{padding:3mm 5mm 0}.scard-body{padding:2mm 5mm 4mm}
+  .unit{padding:1.5mm 2mm}
+  .units{gap:1.5mm}
+  .note{padding:2.5mm 4mm;margin-top:3mm}
+  body.hide-ko .unit .ko,body.hide-ko .ko-sum{color:var(--ink-2)!important;background:none!important}
+  .vgrid,.bgrid{grid-template-columns:1fr 1fr!important;gap:3mm}
+  .bcard.wide{grid-column:1/-1}
+  .core{grid-template-columns:1fr 1fr!important;padding:4mm 5mm}
+  .vcard{padding:3.5mm 4mm}
+  body.vhide .vcard *{filter:none!important}
+  .ggroup{margin-bottom:3mm}
+  .gitem{grid-template-columns:42mm 1fr;padding:2mm 4mm}
+  .ghead{padding:2mm 4mm}
+  .refs{font-size:8pt}
+  .drow{padding:3mm 5mm}
+  .blank{background:none!important;border-bottom:1px solid #333!important;color:transparent!important;text-decoration:none!important}
+  .fix{display:none!important}
+  .quiz.only-wrong .qcard{display:block!important}
+  .qcard{padding:3mm 5mm;margin-bottom:2.5mm}
+  .opts{gap:0;margin-top:1.5mm}
+  .opt{padding:.8mm 2mm;border:0!important;background:none!important}
+  .opt.bad .ot{color:inherit!important;text-decoration:none!important}
+  .opt.ans .ot{font-weight:400!important}
+  .pen,.expl{display:none!important}
+  .passage{padding:4mm 6mm}
+  .answer-key{display:block!important}
+  body.print-student .answer-key{display:none!important}
+  .key-grid{columns:2;column-gap:7mm}
+  .key-grid h3{font-size:10.5pt;margin:0 0 2mm;break-after:avoid}
+  .key-grid ol{margin:0 0 4mm;padding-left:5mm;font-size:8.6pt;line-height:1.55}
+  .key-grid li{break-inside:avoid;margin-bottom:1.2mm}
+  .key-grid li b{color:var(--pen)}
+}
+
 .site-footer{max-width:1080px;margin:0 auto;padding:24px 20px 40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--pencil);border-top:1px solid var(--rule)}
 .site-footer a{color:var(--ink-2)}
 
@@ -345,12 +566,29 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
   .gitem{grid-template-columns:1fr;padding:12px 14px}
   .fact{grid-template-columns:1fr}
 }
+
+
 @media print{
-  .site-header,.sec-tools,.speak,.tools,.route,.score-bar{display:none!important}
-  body{background:#fff}
-  .sheet{border-color:#bbb;break-inside:avoid-page}
-  .ko-line{display:block!important}
-  .expl{display:block!important}
+  #getList{columns:2;column-gap:4mm}
+  .ggroup{display:inline-block;width:100%;break-inside:avoid;margin:0 0 3mm}
+  .gitem{grid-template-columns:1fr!important;gap:0;padding:1.6mm 3.5mm}
+  .gv small{display:inline;margin-left:2mm}
+  .quiz{columns:2;column-gap:4mm}
+  .qcard{display:inline-block;width:100%;break-inside:avoid;margin:0 0 3mm}
+  .qstem{margin-top:1mm}
+  .opt{gap:6px}
+  .om{width:18px}
+  .vex{padding:2mm 3mm}
+  .fig-card{padding:2.5mm 4mm 2mm;margin:1mm 0 3mm}
+  .story,.dict,.tbl-wrap{break-inside:auto}
+  .para{padding-bottom:3mm;margin-bottom:3mm}
+  .core .fig-card{display:none}
+  .drow{padding:2mm 5mm}
+  .dsent{line-height:1.9}
+  .dtop{margin:0}
+  .scard{break-inside:auto}
+  .scard-head,.scard .stem,.scard .ko-sum{break-after:avoid}
+  .scard .units{break-inside:avoid}
 }
 </style>
 </head>
@@ -359,9 +597,9 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
   <div class="header-inner">
     <a class="brand" href="./"><span class="brand-name">압축보카<b>S</b>리딩</span><span class="brand-by">English Lab 민쌤영어 · Stairs to 100</span></a>
     <div class="tools">
-      <button class="tool" id="rateBtn" type="button" title="듣기 속도">🔊 보통</button>
-      <button class="tool" id="textBtn" type="button" title="글자 크기">가 크기</button>
-      <button class="tool" id="themeBtn" type="button" title="밝게/어둡게">화면</button>
+      <button class="tool" id="rateBtn" type="button" title="듣기 속도" aria-label="듣기 속도"><span class="ic">🔊</span><span class="lbl">보통</span></button>
+      <button class="tool" id="textBtn" type="button" title="글자 크기" aria-label="글자 크기"><span class="ic">가</span><span class="lbl">크기</span></button>
+      <button class="tool" id="themeBtn" type="button" title="밝게/어둡게" aria-label="화면 밝기"><span class="ic">🌗</span><span class="lbl">화면</span></button>
     </div>
   </div>
   <nav class="tabs" aria-label="학습 단계">
@@ -380,10 +618,27 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
 
 <main>
   <section class="hero">
+    <div class="hero-grid"><div class="hero-text">
     <div class="kicker"><span class="chip red">BBC · 과학</span><span class="chip">수면 · 유전학</span><span class="chip">15문장</span><span class="chip">어휘 18 · 구동사 28</span><span class="chip">받아쓰기 · 실전 18문항</span></div>
     <h1>The people who only need four hours' sleep</h1>
     <p class="ko-title">4시간만 자도 멀쩡한 사람들 — 잠의 양은 유전자가 정한다?</p>
     <p class="lead">새벽 4시 반이면 눈이 번쩍 떠지는 면역학 교수 이야기로 시작하는 BBC 기사입니다. 원문을 먼저 읽고 구문분석 → 어휘 → get 구동사 → 배경지식 순서로 공부한 다음, 받아쓰기와 편입 실전 문제로 손에 익히고 마지막 테스트로 확인하세요. 단계를 마칠 때마다 <b>이 단계 완료</b>를 누르면 진행률이 저장됩니다.</p>
+    <div class="print-only name-box">반 ________ &nbsp;&nbsp; 이름 ______________ &nbsp;&nbsp; 날짜 ____ / ____</div>
+    </div>
+    <figure class="hero-fig play"><svg class="clock" viewBox="0 0 300 300" role="img" aria-label="24시간 시계: 버나드는 22시부터 4시 30분까지 6시간 반, 보통 성인은 7~9시간 잔다">
+<circle cx="150" cy="150" r="120" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+<line x1="150.0" y1="44.0" x2="150.0" y2="30.0" stroke="var(--pencil)" stroke-width="1.6"/><line x1="179.0" y1="41.8" x2="181.1" y2="34.1" stroke="var(--pencil)" stroke-width="1"/><line x1="206.0" y1="53.0" x2="210.0" y2="46.1" stroke="var(--pencil)" stroke-width="1"/><line x1="229.2" y1="70.8" x2="234.9" y2="65.1" stroke="var(--pencil)" stroke-width="1"/><line x1="247.0" y1="94.0" x2="253.9" y2="90.0" stroke="var(--pencil)" stroke-width="1"/><line x1="258.2" y1="121.0" x2="265.9" y2="118.9" stroke="var(--pencil)" stroke-width="1"/><line x1="256.0" y1="150.0" x2="270.0" y2="150.0" stroke="var(--pencil)" stroke-width="1.6"/><line x1="258.2" y1="179.0" x2="265.9" y2="181.1" stroke="var(--pencil)" stroke-width="1"/><line x1="247.0" y1="206.0" x2="253.9" y2="210.0" stroke="var(--pencil)" stroke-width="1"/><line x1="229.2" y1="229.2" x2="234.9" y2="234.9" stroke="var(--pencil)" stroke-width="1"/><line x1="206.0" y1="247.0" x2="210.0" y2="253.9" stroke="var(--pencil)" stroke-width="1"/><line x1="179.0" y1="258.2" x2="181.1" y2="265.9" stroke="var(--pencil)" stroke-width="1"/><line x1="150.0" y1="256.0" x2="150.0" y2="270.0" stroke="var(--pencil)" stroke-width="1.6"/><line x1="121.0" y1="258.2" x2="118.9" y2="265.9" stroke="var(--pencil)" stroke-width="1"/><line x1="94.0" y1="247.0" x2="90.0" y2="253.9" stroke="var(--pencil)" stroke-width="1"/><line x1="70.8" y1="229.2" x2="65.1" y2="234.9" stroke="var(--pencil)" stroke-width="1"/><line x1="53.0" y1="206.0" x2="46.1" y2="210.0" stroke="var(--pencil)" stroke-width="1"/><line x1="41.8" y1="179.0" x2="34.1" y2="181.1" stroke="var(--pencil)" stroke-width="1"/><line x1="44.0" y1="150.0" x2="30.0" y2="150.0" stroke="var(--pencil)" stroke-width="1.6"/><line x1="41.8" y1="121.0" x2="34.1" y2="118.9" stroke="var(--pencil)" stroke-width="1"/><line x1="53.0" y1="94.0" x2="46.1" y2="90.0" stroke="var(--pencil)" stroke-width="1"/><line x1="70.8" y1="70.8" x2="65.1" y2="65.1" stroke="var(--pencil)" stroke-width="1"/><line x1="94.0" y1="53.0" x2="90.0" y2="46.1" stroke="var(--pencil)" stroke-width="1"/><line x1="121.0" y1="41.8" x2="118.9" y2="34.1" stroke="var(--pencil)" stroke-width="1"/><text x="150.0" y="20.0" text-anchor="middle" font-size="12" fill="var(--pencil)">0시</text><text x="284.0" y="154.0" text-anchor="middle" font-size="12" fill="var(--pencil)">6시</text><text x="150.0" y="288.0" text-anchor="middle" font-size="12" fill="var(--pencil)">12시</text><text x="16.0" y="154.0" text-anchor="middle" font-size="12" fill="var(--pencil)">18시</text>
+<circle cx="150" cy="150" r="72" fill="none" stroke="var(--r-v)" stroke-opacity=".9" stroke-width="10" stroke-linecap="round" stroke-dasharray="150.80 452.39" transform="rotate(255 150 150)" class="arc" style="--len:150.80;animation-delay:.5s"/>
+<circle cx="150" cy="150" r="92" fill="none" stroke="var(--pen)" stroke-width="14" stroke-linecap="round" stroke-dasharray="156.56 578.05" transform="rotate(240 150 150)" class="arc" style="--len:156.56"/>
+<g class="hand"><line x1="150" y1="150" x2="150" y2="92" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round"/></g>
+<circle cx="150" cy="150" r="4" fill="var(--ink)"/>
+<g class="moon"><circle cx="104.0" cy="70.3" r="12" fill="var(--ink)"/><circle cx="104.0" cy="70.3" r="6.5" fill="#f5c542"/><circle cx="106.8" cy="68.1" r="5.6" fill="var(--ink)"/></g>
+<g class="sun" stroke="#e7a400" stroke-width="2" stroke-linecap="round"><circle cx="235.0" cy="114.8" r="6" fill="#f5b800" stroke="none"/><line x1="243.0" y1="114.8" x2="247.0" y2="114.8"/><line x1="240.7" y1="120.4" x2="243.5" y2="123.3"/><line x1="235.0" y1="122.8" x2="235.0" y2="126.8"/><line x1="229.3" y1="120.4" x2="226.5" y2="123.3"/><line x1="227.0" y1="114.8" x2="223.0" y2="114.8"/><line x1="229.3" y1="109.1" x2="226.5" y2="106.3"/><line x1="235.0" y1="106.8" x2="235.0" y2="102.8"/><line x1="240.7" y1="109.1" x2="243.5" y2="106.3"/></g>
+<text x="150" y="178" text-anchor="middle" font-size="22" font-weight="700" fill="var(--pen)" font-family="Literata,Georgia,serif">6.5h</text>
+<text x="150" y="194" text-anchor="middle" font-size="10.5" fill="var(--pencil)">버나드의 밤</text>
+</svg><figcaption><span><i style="background:var(--pen)"></i>버나드 22:00–04:30</span><span><i style="background:var(--r-v)"></i>보통 성인 예시 8시간</span></figcaption></figure>
+    </div>
+    <p class="print-only toc-t">목차</p>
     <ol class="route">
       <li><a href="#read" data-r="read"><b>1</b><span>원문 읽기</span><small>해석 · 끊어 읽기 · 바꿔 말하기</small></a></li>
       <li><a href="#syntax" data-r="syntax"><b>2</b><span>구문분석</span><small>15문장 + 문법 포인트 18</small></a></li>
@@ -395,6 +650,7 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
       <li><a href="#test" data-r="test"><b>8</b><span>확인 테스트</span><small>12문항 채점</small></a></li>
     </ol>
     <div class="progress"><span>학습 진행</span><span class="bar"><i id="progBar"></i></span><span id="progTxt">0 / 8 단계</span></div>
+    <div class="dl-bar"><span class="dl-t">🖨 인쇄용</span><a class="btn dark" href="sleep-genes-student.pdf" download>PDF 학생용</a><a class="btn" href="sleep-genes-teacher.pdf" download>PDF 교사용 · 정답 포함</a><button class="btn" id="printBtn" type="button">바로 인쇄</button></div>
   </section>
 
   <!-- 1 -->
@@ -492,6 +748,14 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
           <p class="e">Few people can <b>get by on</b> four hours' sleep.</p>
           <p class="k">4시간 수면으로 버틸 수 있는 사람은 거의 없다.</p>
         </div>
+<figure class="fig-card play" style="margin:14px 0 0"><svg viewBox="0 0 360 96" role="img" aria-label="get away with: 벌이나 대가의 영역에서 빠져나가는 그림">
+<rect x="8" y="14" width="120" height="66" rx="8" fill="var(--pen-soft)" stroke="var(--pen)" stroke-dasharray="5 4"/>
+<text x="68" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="var(--pen)">벌 · 대가</text>
+<text x="68" y="64" text-anchor="middle" font-size="11.5" fill="var(--pencil)">(피로, 처벌)</text>
+<g class="escape"><circle cx="100" cy="47" r="9" fill="var(--ink)"/><path d="M114 47h40" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round"/><path d="M148 40l8 7-8 7" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="250" y="42" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Literata,Georgia,serif">get away with ~</text>
+<text x="250" y="62" text-anchor="middle" font-size="12" fill="var(--pencil)">~을 가지고도 빠져나가다</text>
+</svg><figcaption>away(멀리) + with(~을 가진 채) → 대가 없이 무사히 넘어가다</figcaption></figure>
         <p class="hint" style="margin:10px 0 0">★ 표시 = 기사·시험 직결. 아래 동의어는 편입 어휘 문제 보기로 자주 나오는 단어입니다.</p>
       </div>
     </div>
@@ -691,6 +955,11 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
     <div class="sheet score-bar"><span>맞힌 문항</span><b class="got" id="got">0</b><span class="muted">/ <span id="tot">12</span> · 푼 문항 <span id="done">0</span></span></div>
     <div class="quiz" id="testList"></div>
   </section>
+
+  <section class="sec answer-key" id="answerKey">
+    <div class="sec-head"><h2><span class="num">✓</span>정답 및 해설<small>받아쓰기 · 편입 실전 · 확인 테스트</small></h2></div>
+    <div class="key-grid" id="keyBody"></div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -699,6 +968,8 @@ body.vhide .vcard.reveal .senses,body.vhide .vcard.reveal .vex .k,body.vhide .vc
 </footer>
 
 <script>
+const FIGS={"3": "<figure class=\"fig-card play\"><svg viewBox=\"0 0 640 145\" role=\"img\" aria-label=\"버나드의 아침: 4시 30분 기상, 개 산책, 헬스 1시간, 8시 전 업무 1시간 반\">\n<line x1=\"40\" y1=\"64\" x2=\"588\" y2=\"64\" stroke=\"var(--rule)\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n<g class=\"walker\"><circle cx=\"40\" cy=\"64\" r=\"7\" fill=\"var(--pen)\"/></g>\n<g class=\"pop\" style=\"animation-delay:0.3s\"><circle cx=\"70\" cy=\"64\" r=\"24\" fill=\"var(--paper)\" stroke=\"var(--ink-2)\" stroke-width=\"1.6\"/>\n<g transform=\"translate(70 64)\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"color:var(--ink)\"><circle r=\"9\"/><path d=\"M0-5V0l3.5 2.5\"/><path d=\"M-8-10l-3 3M8-10l3 3M-6 8l-2 3M6 8l2 3\"/></g></g>\n<text x=\"70\" y=\"112\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--ink)\">04:30 기상</text>\n<text x=\"70\" y=\"131\" text-anchor=\"middle\" font-size=\"12\" font-style=\"italic\" fill=\"var(--pencil)\" font-family=\"Literata,Georgia,serif\">I'm wide awake.</text><g class=\"pop\" style=\"animation-delay:1.4s\"><circle cx=\"230\" cy=\"64\" r=\"24\" fill=\"var(--paper)\" stroke=\"var(--ink-2)\" stroke-width=\"1.6\"/>\n<g transform=\"translate(230 64)\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"color:var(--ink)\"><g fill=\"currentColor\" stroke=\"none\"><ellipse cx=\"0\" cy=\"4\" rx=\"5.5\" ry=\"4.5\"/><circle cx=\"-7\" cy=\"-3\" r=\"2.4\"/><circle cx=\"-2.6\" cy=\"-7.5\" r=\"2.4\"/><circle cx=\"2.6\" cy=\"-7.5\" r=\"2.4\"/><circle cx=\"7\" cy=\"-3\" r=\"2.4\"/></g></g></g>\n<text x=\"230\" y=\"112\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--ink)\">개 산책</text>\n<text x=\"230\" y=\"131\" text-anchor=\"middle\" font-size=\"12\" font-style=\"italic\" fill=\"var(--pencil)\" font-family=\"Literata,Georgia,serif\">walk her dog</text><g class=\"pop\" style=\"animation-delay:2.5s\"><circle cx=\"390\" cy=\"64\" r=\"24\" fill=\"var(--paper)\" stroke=\"var(--ink-2)\" stroke-width=\"1.6\"/>\n<g transform=\"translate(390 64)\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"color:var(--ink)\"><path d=\"M-8 0h16\"/><rect x=\"-11\" y=\"-6\" width=\"4\" height=\"12\" rx=\"1\"/><rect x=\"7\" y=\"-6\" width=\"4\" height=\"12\" rx=\"1\"/><path d=\"M-13-3v6M13-3v6\"/></g></g>\n<text x=\"390\" y=\"112\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--ink)\">헬스 1시간</text>\n<text x=\"390\" y=\"131\" text-anchor=\"middle\" font-size=\"12\" font-style=\"italic\" fill=\"var(--pencil)\" font-family=\"Literata,Georgia,serif\">sweat through a gym session</text><g class=\"pop\" style=\"animation-delay:3.6s\"><circle cx=\"550\" cy=\"64\" r=\"24\" fill=\"var(--paper)\" stroke=\"var(--ink-2)\" stroke-width=\"1.6\"/>\n<g transform=\"translate(550 64)\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"color:var(--ink)\"><rect x=\"-10\" y=\"-8\" width=\"20\" height=\"13\" rx=\"1.5\"/><path d=\"M-13 8h26\"/></g></g>\n<text x=\"550\" y=\"112\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--ink)\">업무 1.5시간</text>\n<text x=\"550\" y=\"131\" text-anchor=\"middle\" font-size=\"12\" font-style=\"italic\" fill=\"var(--pencil)\" font-family=\"Literata,Georgia,serif\">clock 1.5 hours of work</text>\n<text x=\"614\" y=\"68\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--pen)\">08:00</text>\n</svg><figcaption>그림 ¶3 · 버나드의 아침 — 오전 8시 전에 이 모든 걸 끝낸다</figcaption></figure>", "4": "<figure class=\"fig-card play\"><svg viewBox=\"0 0 640 176\" role=\"img\" aria-label=\"권장 수면 시간: 보통 성인 7~9시간, 65세 이상 7~8시간, 버나드는 5~6.5시간\">\n<line x1=\"130\" y1=\"146\" x2=\"598\" y2=\"146\" stroke=\"var(--pencil)\"/><line x1=\"130\" y1=\"146\" x2=\"130\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"130\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">0h</text><line x1=\"208\" y1=\"146\" x2=\"208\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"208\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">2h</text><line x1=\"286\" y1=\"146\" x2=\"286\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"286\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">4h</text><line x1=\"364\" y1=\"146\" x2=\"364\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"364\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">6h</text><line x1=\"442\" y1=\"146\" x2=\"442\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"442\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">8h</text><line x1=\"520\" y1=\"146\" x2=\"520\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"520\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">10h</text><line x1=\"598\" y1=\"146\" x2=\"598\" y2=\"151\" stroke=\"var(--pencil)\"/><text x=\"598\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--pencil)\">12h</text>\n<line x1=\"442\" y1=\"22\" x2=\"442\" y2=\"146\" stroke=\"var(--ink)\" stroke-dasharray=\"3 4\" opacity=\".45\"/>\n<text x=\"442\" y=\"15\" text-anchor=\"middle\" font-size=\"11.5\" fill=\"var(--pencil)\">흔히 말하는 8시간</text>\n<text x=\"120\" y=\"51\" text-anchor=\"end\" font-size=\"13\" font-weight=\"500\" fill=\"var(--ink)\">보통 성인 (26–64세)</text>\n<rect x=\"130\" y=\"36\" width=\"468\" height=\"22\" rx=\"3\" fill=\"var(--rule-2)\"/>\n<rect class=\"bar\" style=\"animation-delay:0.20s\" x=\"403.0\" y=\"36\" width=\"78.0\" height=\"22\" rx=\"3\" fill=\"var(--r-v)\" opacity=\"1\"/>\n<text class=\"fadein\" style=\"animation-delay:1.00s\" x=\"489.0\" y=\"52\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--r-v)\">7–9시간</text><text x=\"120\" y=\"91\" text-anchor=\"end\" font-size=\"13\" font-weight=\"500\" fill=\"var(--ink)\">65세 이상</text>\n<rect x=\"130\" y=\"76\" width=\"468\" height=\"22\" rx=\"3\" fill=\"var(--rule-2)\"/>\n<rect class=\"bar\" style=\"animation-delay:0.55s\" x=\"403.0\" y=\"76\" width=\"39.0\" height=\"22\" rx=\"3\" fill=\"var(--r-v)\" opacity=\"0.6\"/>\n<text class=\"fadein\" style=\"animation-delay:1.35s\" x=\"450.0\" y=\"92\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--r-v)\">7–8시간</text><text x=\"120\" y=\"131\" text-anchor=\"end\" font-size=\"13\" font-weight=\"700\" fill=\"var(--ink)\">버나드</text>\n<rect x=\"130\" y=\"116\" width=\"468\" height=\"22\" rx=\"3\" fill=\"var(--rule-2)\"/>\n<rect class=\"bar\" style=\"animation-delay:0.90s\" x=\"325.0\" y=\"116\" width=\"58.5\" height=\"22\" rx=\"3\" fill=\"var(--pen)\" opacity=\"1\"/>\n<text class=\"fadein\" style=\"animation-delay:1.70s\" x=\"391.5\" y=\"132\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--pen)\">5–6.5시간</text></svg><figcaption>그림 ¶4 · 미국 국립수면재단 권장 범위와 버나드 비교 (버나드: 평소 6시간 반, 잠이 늦게 든 날 5시간)</figcaption></figure>", "5": "<figure class=\"fig-card play\"><svg viewBox=\"0 0 640 200\" role=\"img\" aria-label=\"DNA 그림: 빨간색 희귀 돌연변이 한 곳, 파란 점 흔한 변이 여러 곳\">\n<path d=\"M40,88.0 L44,80.9 L48,73.9 L52,67.5 L56,61.7 L60,56.7 L64,52.8 L68,50.0 L72,48.4 L76,48.0 L80,49.0 L84,51.2 L88,54.6 L92,59.1 L96,64.5 L100,70.6 L104,77.4 L108,84.4 L112,91.6 L116,98.6 L120,105.4 L124,111.5 L128,116.9 L132,121.4 L136,124.8 L140,127.0 L144,128.0 L148,127.6 L152,126.0 L156,123.2 L160,119.3 L164,114.3 L168,108.5 L172,102.1 L176,95.1 L180,88.0 L184,80.9 L188,73.9 L192,67.5 L196,61.7 L200,56.7 L204,52.8 L208,50.0 L212,48.4 L216,48.0 L220,49.0 L224,51.2 L228,54.6 L232,59.1 L236,64.5 L240,70.6 L244,77.4 L248,84.4 L252,91.6 L256,98.6 L260,105.4 L264,111.5 L268,116.9 L272,121.4 L276,124.8 L280,127.0 L284,128.0 L288,127.6 L292,126.0 L296,123.2 L300,119.3 L304,114.3 L308,108.5 L312,102.1 L316,95.1 L320,88.0 L324,80.9 L328,73.9 L332,67.5 L336,61.7 L340,56.7 L344,52.8 L348,50.0 L352,48.4 L356,48.0 L360,49.0 L364,51.2 L368,54.6 L372,59.1 L376,64.5 L380,70.6 L384,77.4 L388,84.4 L392,91.6 L396,98.6 L400,105.4 L404,111.5 L408,116.9 L412,121.4 L416,124.8 L420,127.0 L424,128.0 L428,127.6 L432,126.0 L436,123.2 L440,119.3 L444,114.3 L448,108.5 L452,102.1 L456,95.1 L460,88.0 L464,80.9 L468,73.9 L472,67.5 L476,61.7 L480,56.7 L484,52.8 L488,50.0 L492,48.4 L496,48.0 L500,49.0 L504,51.2 L508,54.6 L512,59.1 L516,64.5 L520,70.6 L524,77.4 L528,84.4 L532,91.6 L536,98.6 L540,105.4 L544,111.5 L548,116.9 L552,121.4 L556,124.8 L560,127.0 L564,128.0 L568,127.6 L572,126.0 L576,123.2 L580,119.3 L584,114.3 L588,108.5 L592,102.1 L596,95.1 L600,88.0\" fill=\"none\" stroke=\"var(--ink-2)\" stroke-width=\"2.4\"/><path d=\"M40,88.0 L44,95.1 L48,102.1 L52,108.5 L56,114.3 L60,119.3 L64,123.2 L68,126.0 L72,127.6 L76,128.0 L80,127.0 L84,124.8 L88,121.4 L92,116.9 L96,111.5 L100,105.4 L104,98.6 L108,91.6 L112,84.4 L116,77.4 L120,70.6 L124,64.5 L128,59.1 L132,54.6 L136,51.2 L140,49.0 L144,48.0 L148,48.4 L152,50.0 L156,52.8 L160,56.7 L164,61.7 L168,67.5 L172,73.9 L176,80.9 L180,88.0 L184,95.1 L188,102.1 L192,108.5 L196,114.3 L200,119.3 L204,123.2 L208,126.0 L212,127.6 L216,128.0 L220,127.0 L224,124.8 L228,121.4 L232,116.9 L236,111.5 L240,105.4 L244,98.6 L248,91.6 L252,84.4 L256,77.4 L260,70.6 L264,64.5 L268,59.1 L272,54.6 L276,51.2 L280,49.0 L284,48.0 L288,48.4 L292,50.0 L296,52.8 L300,56.7 L304,61.7 L308,67.5 L312,73.9 L316,80.9 L320,88.0 L324,95.1 L328,102.1 L332,108.5 L336,114.3 L340,119.3 L344,123.2 L348,126.0 L352,127.6 L356,128.0 L360,127.0 L364,124.8 L368,121.4 L372,116.9 L376,111.5 L380,105.4 L384,98.6 L388,91.6 L392,84.4 L396,77.4 L400,70.6 L404,64.5 L408,59.1 L412,54.6 L416,51.2 L420,49.0 L424,48.0 L428,48.4 L432,50.0 L436,52.8 L440,56.7 L444,61.7 L448,67.5 L452,73.9 L456,80.9 L460,88.0 L464,95.1 L468,102.1 L472,108.5 L476,114.3 L480,119.3 L484,123.2 L488,126.0 L492,127.6 L496,128.0 L500,127.0 L504,124.8 L508,121.4 L512,116.9 L516,111.5 L520,105.4 L524,98.6 L528,91.6 L532,84.4 L536,77.4 L540,70.6 L544,64.5 L548,59.1 L552,54.6 L556,51.2 L560,49.0 L564,48.0 L568,48.4 L572,50.0 L576,52.8 L580,56.7 L584,61.7 L588,67.5 L592,73.9 L596,80.9 L600,88.0\" fill=\"none\" stroke=\"var(--ink-2)\" stroke-width=\"2.4\" opacity=\".55\"/>\n<line x1=\"47\" y1=\"75.6\" x2=\"47\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"61\" y1=\"55.6\" x2=\"61\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:0.58s\" cx=\"61\" cy=\"120.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"75\" y1=\"48.0\" x2=\"75\" y2=\"128.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"89\" y1=\"55.6\" x2=\"89\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"103\" y1=\"75.6\" x2=\"103\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"117\" y1=\"100.4\" x2=\"117\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:0.76s\" cx=\"117\" cy=\"100.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"131\" y1=\"120.4\" x2=\"131\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"145\" y1=\"128.0\" x2=\"145\" y2=\"48.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"159\" y1=\"120.4\" x2=\"159\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"173\" y1=\"100.4\" x2=\"173\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:0.94s\" cx=\"173\" cy=\"100.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"187\" y1=\"75.6\" x2=\"187\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"201\" y1=\"55.6\" x2=\"201\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"215\" y1=\"48.0\" x2=\"215\" y2=\"128.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"229\" y1=\"55.6\" x2=\"229\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:1.12s\" cx=\"229\" cy=\"120.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"243\" y1=\"75.6\" x2=\"243\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"257\" y1=\"100.4\" x2=\"257\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"271\" y1=\"120.4\" x2=\"271\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"285\" y1=\"128.0\" x2=\"285\" y2=\"48.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:1.30s\" cx=\"285\" cy=\"128.0\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"299\" y1=\"120.4\" x2=\"299\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"313\" y1=\"100.4\" x2=\"313\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"327\" y1=\"75.6\" x2=\"327\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"341\" y1=\"55.6\" x2=\"341\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:1.48s\" cx=\"341\" cy=\"120.4\" r=\"4\" fill=\"var(--r-v)\"/><line class=\"mut\" x1=\"355\" y1=\"48.0\" x2=\"355\" y2=\"128.0\" stroke=\"var(--pen)\" stroke-width=\"5\" stroke-linecap=\"round\"/><line x1=\"369\" y1=\"55.6\" x2=\"369\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"383\" y1=\"75.6\" x2=\"383\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"397\" y1=\"100.4\" x2=\"397\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:1.66s\" cx=\"397\" cy=\"100.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"411\" y1=\"120.4\" x2=\"411\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"425\" y1=\"128.0\" x2=\"425\" y2=\"48.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"439\" y1=\"120.4\" x2=\"439\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"453\" y1=\"100.4\" x2=\"453\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:1.84s\" cx=\"453\" cy=\"100.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"467\" y1=\"75.6\" x2=\"467\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"481\" y1=\"55.6\" x2=\"481\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"495\" y1=\"48.0\" x2=\"495\" y2=\"128.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"509\" y1=\"55.6\" x2=\"509\" y2=\"120.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:2.02s\" cx=\"509\" cy=\"120.4\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"523\" y1=\"75.6\" x2=\"523\" y2=\"100.4\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"537\" y1=\"100.4\" x2=\"537\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"551\" y1=\"120.4\" x2=\"551\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"565\" y1=\"128.0\" x2=\"565\" y2=\"48.0\" stroke=\"var(--rule)\" stroke-width=\"2\"/><circle class=\"pop\" style=\"animation-delay:2.20s\" cx=\"565\" cy=\"128.0\" r=\"4\" fill=\"var(--r-v)\"/><line x1=\"579\" y1=\"120.4\" x2=\"579\" y2=\"55.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/><line x1=\"593\" y1=\"100.4\" x2=\"593\" y2=\"75.6\" stroke=\"var(--rule)\" stroke-width=\"2\"/>\n<path d=\"M355 42 L373 20\" stroke=\"var(--pen)\" stroke-width=\"1.4\" fill=\"none\"/>\n<text x=\"377\" y=\"22\" font-size=\"13\" font-weight=\"700\" fill=\"var(--pen)\">rare mutation — 딱 한 곳, 효과 큼</text>\n<text x=\"40\" y=\"168\" font-size=\"13\" font-weight=\"700\" fill=\"var(--r-v)\">● common variants — 수백 곳, 하나하나는 효과가 아주 작음</text>\n<text x=\"40\" y=\"188\" font-size=\"11.5\" fill=\"var(--pencil)\">기사 ¶5 \"From the rare mutations … to hundreds of much more common variants\"</text>\n</svg><figcaption>그림 ¶5 · 버나드형(희귀 돌연변이) vs 대부분의 사람(흔한 변이들의 합) — 배경지식 03·04에서 자세히</figcaption></figure>"};
+const ICONS={"forlong": "<rect x=\"7\" y=\"10\" width=\"26\" height=\"23\" rx=\"3\"/><path d=\"M7 16h26M14 6v7M26 6v7\"/><path d=\"M25.5 26.5a5.5 5.5 0 1 1-1.6-6\"/><path d=\"M24.5 17.8l-.6 2.9 2.9.4\"/>", "wide": "<g class=\"blink\"><path d=\"M3 20c5-8 11-11.5 17-11.5S32 12 37 20c-5 8-11 11.5-17 11.5S8 28 3 20z\"/><circle cx=\"20\" cy=\"20\" r=\"6.5\"/><circle cx=\"20\" cy=\"20\" r=\"2.6\" fill=\"currentColor\"/></g><path d=\"M20 3v3M10 5l1.5 2.6M30 5l-1.5 2.6\"/>", "log": "<rect x=\"9\" y=\"5\" width=\"22\" height=\"30\" rx=\"2\"/><path d=\"M14 12h12M14 18h12M14 24h7\"/><path class=\"tick\" d=\"M22 27l2.5 2.5 5-6\"/>", "slumber": "<path d=\"M23 8a12 12 0 1 0 9.5 19A10 10 0 0 1 23 8z\"/><text class=\"zz\" x=\"27\" y=\"14\" font-size=\"9\" font-weight=\"700\" fill=\"currentColor\" stroke=\"none\">z</text><text class=\"zz\" style=\"animation-delay:.8s\" x=\"32\" y=\"9\" font-size=\"7\" font-weight=\"700\" fill=\"currentColor\" stroke=\"none\">z</text>", "gawk": "<g class=\"blink\"><circle cx=\"13\" cy=\"15\" r=\"6.5\"/><circle cx=\"27\" cy=\"15\" r=\"6.5\"/><circle cx=\"13\" cy=\"16\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"27\" cy=\"16\" r=\"2.4\" fill=\"currentColor\"/></g><ellipse cx=\"20\" cy=\"30\" rx=\"4\" ry=\"5\"/>", "variant": "<circle cx=\"8\" cy=\"20\" r=\"4\"/><path d=\"M12 20h5M17 20l7-10M17 20h7M17 20l7 10\"/><rect x=\"25\" y=\"6\" width=\"8\" height=\"8\" rx=\"1\"/><circle cx=\"29\" cy=\"20\" r=\"4\"/><path d=\"M29 26l4.5 7h-9z\"/>", "getawaywith": "<rect x=\"4\" y=\"9\" width=\"17\" height=\"22\" rx=\"2\" stroke-dasharray=\"3 3\"/><g class=\"nudge\"><path d=\"M13 20h21M28 14l6 6-6 6\"/></g><path d=\"M8 16h4M8 24h4\" opacity=\".5\"/>"};
 /* ---------- 데이터 ---------- */
 const STORY=[
  [1,"<u class=\"req\" data-v=\"forlong\">For as long as</u> she can remember, Aimee Pugh Bernard hasn't needed much sleep.","기억할 수 있는 아주 오래전부터 에이미 퓨 버나드는 잠이 많이 필요하지 않았다."],
@@ -971,11 +1242,11 @@ function speak(text){
 (function(){
   let html='',cur=0,n=0;
   STORY.forEach((s,i)=>{
-    if(s[0]!==cur){ if(cur) html+='</div>'; cur=s[0]; html+=`<div class="para"><span class="para-no">¶${cur}</span>`; }
+    if(s[0]!==cur){ if(cur) html+='</div>'+(FIGS[cur]||''); cur=s[0]; html+=`<div class="para"><span class="para-no">¶${cur}</span>`; }
     n++;
     html+=`<span class="sent" data-i="${i}" tabindex="0" role="button" aria-expanded="false"><span class="sn">${n}</span>${s[1]}</span> <button class="speak" data-say="${i}" type="button" aria-label="${n}번 문장 듣기">🔊</button><span class="ko-line" id="ko${i}">${s[2]} <a href="#s${n}" class="muted" style="font-size:12.5px">구문분석 →</a></span> `;
   });
-  html+='</div>';
+  html+='</div>'+(FIGS[cur]||'');
   $('#story').innerHTML=html;
   $('#story').addEventListener('click',e=>{
     const u=e.target.closest('u[data-v]');
@@ -1017,7 +1288,7 @@ $('#vocabList').innerHTML=VOCAB.map((v,i)=>{
   const x=v.x?`<ul class="ext">${v.x.map(t=>`<li>${t}</li>`).join('')}</ul>`:'';
   const c=v.c?`<div class="cmp">${v.c.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`:'';
   const syn=v.syn?`<p class="syn"><b>동의어</b> ${esc(v.syn)}</p>`:'';
-  return `<article class="sheet vcard${v.req?' req':''}" id="v-${v.id}"><div class="vtop"><span class="vno">${String(i+1).padStart(2,'0')}</span><h3 class="vword">${esc(v.w)}</h3><span class="vpr">[${esc(v.pr)}]</span>${v.req?'<span class="req-tag">요청</span>':''}<button class="speak" data-w="${esc(v.w)}" type="button" aria-label="${esc(v.w)} 발음">🔊</button></div>
+  return `<article class="sheet vcard${v.req?' req':''}" id="v-${v.id}"><div class="vtop"><span class="vno">${String(i+1).padStart(2,'0')}</span><h3 class="vword">${esc(v.w)}</h3><span class="vpr">[${esc(v.pr)}]</span>${v.req?'<span class="req-tag">요청</span>':''}${ICONS[v.id]?`<span class="vic play" aria-hidden="true"><svg viewBox="0 0 40 40">${ICONS[v.id]}</svg></span>`:''}<button class="speak" data-w="${esc(v.w)}" type="button" aria-label="${esc(v.w)} 발음">🔊</button></div>
    <ul class="senses">${senses}</ul><div class="vex">${ex}</div>${x}${c}${syn}${v.id==='getawaywith'?'<p class="syn"><a href="#get">→ get 구동사 28개 한 번에 보기</a></p>':''}</article>`;
 }).join('');
 $('#vocabList').addEventListener('click',e=>{const b=e.target.closest('[data-w]');if(b)speak(b.dataset.w);});
@@ -1190,7 +1461,7 @@ paintDone();
 
 /* 듣기 속도 */
 const RATES=[[.75,'느리게'],[.92,'보통'],[1.05,'빠르게']];
-function paintRate(){const r=RATES.find(r=>r[0]===RATE)||RATES[1];$('#rateBtn').textContent='🔊 '+r[1];}
+function paintRate(){const r=RATES.find(r=>r[0]===RATE)||RATES[1];$('#rateBtn .lbl').textContent=r[1];}
 $('#rateBtn').addEventListener('click',()=>{const i=RATES.findIndex(r=>r[0]===RATE);RATE=RATES[(i+1)%RATES.length][0];setPref('rate',RATE);paintRate();speak('This is the reading speed.');});
 paintRate();
 
@@ -1206,6 +1477,49 @@ let lastTab=-1;const tabBar=document.querySelector('.tabs-inner');
 function spy(){let cur=0;const y=window.scrollY+140;secs.forEach((s,i)=>{if(s.offsetTop<=y)cur=i});tabs.forEach((a,i)=>a.classList.toggle('on',i===cur&&window.scrollY>200));if(cur!==lastTab){lastTab=cur;const a=tabs[cur];tabBar.scrollTo({left:a.offsetLeft-tabBar.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}}
 addEventListener('scroll',spy,{passive:true});spy();
 if('speechSynthesis' in window){speechSynthesis.getVoices();}
+
+/* ---------- v3: 정답 부록 ---------- */
+(function(){
+  const strip=h=>h.replace(/<span class='signal'>([^<]*)<\/span>/g,'[$1] ');
+  const ol=(arr,fn)=>'<ol>'+arr.map(fn).join('')+'</ol>';
+  const q=(x)=>`<li><b>${MARKS[x[3]]}</b> ${strip(x[4])}</li>`;
+  $('#keyBody').innerHTML=
+    '<h3>6. 받아쓰기</h3>'+ol(DICT,d=>`<li>${[...d[1].matchAll(/\{\{([^}]+)\}\}/g)].map(m=>esc(m[1].split('|')[0])).join(' / ')}</li>`)+
+    '<h3>7-A. 논리완성</h3>'+ol(LOGIC,q)+
+    '<h3>7-B. 독해 — BBC 원문</h3>'+ol(READQ,q)+
+    '<h3>7-C. 독해 — 확장 지문</h3>'+ol(EXTQ,q)+
+    '<h3>8. 확인 테스트</h3>'+ol(TEST,q);
+})();
+
+/* ---------- v3: 인쇄 ---------- */
+$('#printBtn').addEventListener('click',()=>{document.body.classList.add('print-student');window.print();});
+addEventListener('afterprint',()=>document.body.classList.remove('print-student'));
+
+/* ---------- v3: 등장 애니메이션 ---------- */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  document.documentElement.classList.add('anim');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(!e.target.classList.contains('play'))io.unobserve(e.target);}else if(e.target.classList.contains('play')){e.target.classList.remove('in');}}),{rootMargin:'0px 0px -8% 0px',threshold:.12});
+  document.querySelectorAll('main .sheet:not(.story):not(.chunks), .flow li, .route li').forEach(el=>{el.classList.add('rv');io.observe(el);});
+  document.querySelectorAll('.play').forEach(el=>io.observe(el));
+})();
+
+/* ---------- v3: 모바일 하단 이동 바 ---------- */
+(function(){
+  const names=['원문','구문분석','어휘','get 구동사','배경지식','받아쓰기','편입 실전','확인 테스트'];
+  const dock=document.createElement('nav');dock.className='dock';dock.setAttribute('aria-label','단계 이동');
+  dock.innerHTML='<button type="button" data-d="-1" aria-label="이전 단계">◀</button><div class="cur"></div><button type="button" data-d="1" aria-label="다음 단계">▶</button><button type="button" data-d="top" aria-label="맨 위로">↑</button>';
+  document.body.appendChild(dock);
+  let idx=-2;
+  function upd(){let c=-1;const y=window.scrollY+150;secs.forEach((s,i)=>{if(s.offsetTop<=y)c=i});if(c===idx)return;idx=c;
+    dock.querySelector('.cur').innerHTML=c<0?'<b>›</b>학습 시작':`<b>${c+1}</b>${names[c]}`;
+    dock.querySelector('[data-d="-1"]').disabled=c<=0;dock.querySelector('[data-d="1"]').disabled=c>=secs.length-1;}
+  dock.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset.d;
+    if(d==='top'){scrollTo({top:0,behavior:'smooth'});return;}
+    const t=secs[Math.min(secs.length-1,Math.max(0,idx+(+d)))];if(t)t.scrollIntoView({behavior:'smooth'});});
+  addEventListener('scroll',upd,{passive:true});upd();
+})();
+
 </script>
 </body>
 </html>
